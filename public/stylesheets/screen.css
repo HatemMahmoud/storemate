@@ -1,0 +1,255 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: #555;
+    font-size: 13px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    background-color: #F7F7F7;
+    border-top:7px solid #0077CC;
+}
+h1, h2, h3 {
+    font-family: "Trebuchet MS";
+}
+h1 {
+    border: none;
+    float:left;
+    font-size:30px;
+    margin:0;
+}
+h2 {
+    border-bottom: 1px solid #DDD;
+    font-size: 16px;
+    padding: 0 0 10px;
+}
+h3 {
+    border-bottom:1px solid #EEE;
+    font-size:15px;
+    padding:5px 0;
+}
+p{
+  margin:10px 0;
+}
+#wrapper {
+  width: 770px;
+  margin: 0 auto;
+  padding: 0;
+}
+#header {
+  overflow: auto;
+  padding: 10px;
+}
+#content {
+  padding: 0 10px 10px;
+  background-color: #FFFFFF;
+  border: 1px solid #DDD;
+  border-radius: 5px;
+  -moz-border-radius: 5px; 
+  -webkit-border-radius: 5px; 
+  overflow:auto;
+}
+#menu {
+  float: right;
+  margin:11px 0;
+}
+#menu a{
+  margin:0 0 0 10px;
+  padding:5px 15px;
+  background-color: #F0F0F0;
+  border-radius: 20px;
+  -moz-border-radius: 20px; 
+  -webkit-border-radius: 20px; 
+}
+#menu a:hover, #menu .selected, .selected{
+  color:#FFF;
+  background-color: #0077CC;
+}
+#features{
+  font-size:14px;
+  line-height:24px;
+}
+#features div{
+  float:left;
+  margin:0 57px 10px;
+}
+#features h1{
+  color:#000000;
+  float:none;
+  font-size:34px;
+  margin:60px 0 10px;
+  text-align:center;
+}
+#features h2{
+  font-size:22px;
+  padding:0 0 50px;
+  text-align:center;
+}
+#features h3{
+  font-size:16px;
+  padding:0 0 10px;
+}
+#features li{
+  background: url("/images/accept.png") no-repeat scroll 10px center transparent;
+  padding:0 0 0 35px;
+}
+#main{
+  float:left;
+  width: 470px;
+}
+#sidebar{
+  float:right;
+  width: 230px;
+}
+#footer {
+    font-size: 10px;
+    text-align: center;
+}
+.metadata {
+  font-size: 10px;
+  color: #999;
+}
+.add, .edit, .delete{
+  float: right;
+  margin:0 0 0 5px;
+  padding:0;
+}
+.add:hover, .edit:hover, .delete:hover{
+  background: none;
+}
+/***** Links *****/
+a {
+    color: #0077CC;
+    padding: 1px 3px 2px;
+    text-decoration: none;
+    outline-style: none;
+    border-radius: 8px;
+    -moz-border-radius: 8px; 
+    -webkit-border-radius: 8px; 
+}
+a:hover {
+    color: #FFFFFF;
+    background-color: #0077CC;
+}
+a img {
+    border: none;
+    vertical-align: middle;
+}
+/***** Lists *****/
+ul.list{
+  list-style-type: none;
+  margin: 0 0 10px;
+  padding: 0;
+}
+ul.inline_list {
+  margin: 0;
+  padding: 0;
+}
+ul.inline_list li {
+  display: inline;
+}
+/***** Forms *****/
+form {
+    margin: 0px;
+    padding: 0px;
+}
+input, select, textarea {
+    font: inherit;
+}
+.field, .actions{
+  margin: 16px 0;
+  overflow:auto;
+}
+.actions{
+  text-align:right;
+}
+.checkbox{
+  margin:10px 0;
+}
+label{
+  display:block;
+  float:left;
+  margin:10px 10px 10px 0;
+  text-align:right;
+  width:150px;
+}
+.text_field{
+  width: 540px;
+}
+select{
+  width: 560px;
+}
+.textarea{
+  width: 540px;
+  height: 130px;
+}
+.text_field, .textarea, select, .submit{
+  border-radius: 5px;
+  -moz-border-radius: 5px; 
+  -webkit-border-radius: 5px; 
+  border:1px solid #EEEEEE;
+  font-weight:bold;
+  padding:9px;
+}
+.submit{
+  color:#333;
+  padding:8px;
+  margin-left:0;
+  margin-right:0;
+  text-shadow:1px 1px 0 #FFF;
+  border: 1px solid #CCC;
+  background: -moz-linear-gradient(center top, #F9F9F9, #E0E0E0) repeat scroll 0 0 transparent;
+}
+.submit:hover{
+  border: 1px solid #AAA;
+}
+.submit:active{
+  padding:9px 7px 7px 9px;
+  background: -moz-linear-gradient(center top, #E0E0E0, #F9F9F9) repeat scroll 0 0 transparent;
+}
+.text_field:focus, .textarea:focus, select:focus, .submit:focus, .text_field:hover, .textarea:hover, select:hover{
+  border: 1px solid #CCC;
+}
+/***** Flash Messages *****/
+.notice, .alert, .note {
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    -moz-border-radius: 5px; 
+    -webkit-border-radius: 5px; 
+}
+.notice {
+    color: #57861A;
+    background-color: #F6FFF6;
+    border-color: #99CC99;
+}
+.alert {
+    color: #CC0000;
+    background-color: #FFEBEB;
+    border-color: #E88C8C;
+}
+.note {
+    color: #A47E00;
+    background-color: #FFFFEA;
+    border-color: #FBE288;
+}
+/***** Scaffold Errors *****/
+.field_with_errors input, .field_with_errors textarea, .field_with_errors select {
+    border: 1px solid #CC0000;
+}
+#error_explanation {
+  background-color: #FFEBEB;
+  border: 2px solid #E88C8C;
+  padding: 0pt 15px;
+  border-radius: 5px;
+  -moz-border-radius: 5px; 
+  -webkit-border-radius: 5px; 
+}
+#error_explanation h2 {
+  color: #CC0000;
+  font-size: 16px;
+  border: none;
+  margin:10px 0;
+  padding:0;
+}
+#error_explanation ul {
+  margin: 0 0 10px;
+}
