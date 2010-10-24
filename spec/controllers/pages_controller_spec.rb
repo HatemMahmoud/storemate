@@ -9,4 +9,11 @@ describe PagesController do
     end
   end
 
+  describe "GET 'show', :id => 'help'" do
+    it "should be successful" do
+      get 'show', :id => 'help'
+      response.should be_success
+    end
+  end
+
 end
