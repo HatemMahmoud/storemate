@@ -7,22 +7,29 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-  <div id="wrapper">
-    <div id="header">
+  <div id="header">
+    <div class="content">
       <h1 id="logo"><%= link_to 'StoreMate', root_path %></h1>
-      <ul id="menu" class="inline_list">
-        <li><%= link_to 'Help', page_path('help') %></li>
+      <ul>
+        <li><%= link_to_unless_current('Help', page_path('help')) {|name, link| link_to name, link, :class => 'selected' } %></li>
       </ul>
     </div>
-    <div id="content">
+  </div>
+  <div id="body" class="content">
+    <div id="menu">
+      <ul>
+        <li><%= link_to_unless_current('Home', root_path) {|name, link| link_to name, link, :class => 'selected' } %></li>
+      </ul>
+    </div>
+    <div id="container">
       <%- flash.each do |name, message| -%>
         <%= content_tag :p, message, :class => name %>
       <%- end -%>
       <%= yield %>
     </div>
-    <div id="footer">
-      <p><%= link_to 'Made in ExpressionLab', 'http://www.expressionlab.com', :target => '_blank' %></p>
-    </div>
+  </div>
+  <div id="footer">
+    <p><%= link_to 'Made in ExpressionLab', 'http://www.expressionlab.com', :target => '_blank' %></p>
   </div>
 </body>
 </html>
