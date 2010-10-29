@@ -12,40 +12,41 @@ h1, h2, h3 {
 h1 {
     border: none;
     float:left;
-    font-size:30px;
+    font-size:17px;
     margin:0;
 }
 h2 {
     border-bottom: 1px solid #DDD;
     font-size: 22px;
     padding: 0 0 10px;
+    color:#000;
 }
 h3 {
-    border-bottom:1px solid #EEE;
+    border-bottom:1px solid #DDD;
     font-size:17px;
     padding:5px 0;
-}
-p{
-  margin:10px 0;
+    color:#333;
 }
 .content {
   width: 950px;
   margin: 0 auto;
-  padding: 3px 0;
+  padding: 10px 0;
   overflow: auto;
 }
 
 
 #header {
-  background-color: #0077CC;
-  margin:0 0 30px;
-  font-weight: bold;
+  background-color:#000000;
+  border-bottom:3px solid #666666;
+  margin:0 0 20px;
 }
-    #header h1{
-      font-size:17px;
+    #header a{
+      color:#999;
+      font-weight:bold;
     }
-    #header h1 a{
+    #header h1 a, #header a.selected, #header a:hover{
       color:#FFF;
+      background:none;
     }
     #header ul {
       float: right;
@@ -57,13 +58,6 @@ p{
       display: inline;
       margin:0 0 0 10px;
     }
-    #header li a{
-      color:#CCC;
-    }
-    #header li a.selected, #header li a:hover{
-      color:#FFF;
-    }
-
 
 #menu {
   overflow:auto;
@@ -81,7 +75,7 @@ p{
       display:block;
       float:left;
       padding:10px 15px;
-      color:#777;
+      color:#CCC;
       font-weight:bold;
       background-color:#F4F4F4;
       border-color:#EEEEEE #EEEEEE #DDDDDD;
@@ -92,7 +86,7 @@ p{
       -webkit-border-radius: 5px 5px 0 0;
     }
     #menu a:hover{
-      color:#000000;
+      color:#999;
       background-color:#F1F1F1;
     }
     #menu a.selected{
@@ -207,14 +201,15 @@ input, select, textarea {
   text-align:right;
 }
 .checkbox{
-  margin:10px 0;
+  margin:5px;
 }
 label{
   display:block;
   float:left;
-  margin:10px 10px 10px 0;
+  padding:5px;
   text-align:right;
   width:150px;
+  font-weight:bold; 
 }
 .text_field{
   width: 540px;
@@ -227,31 +222,12 @@ select{
   height: 130px;
 }
 .text_field, .textarea, select, .submit{
-  border-radius: 5px;
-  -moz-border-radius: 5px; 
-  -webkit-border-radius: 5px; 
-  border:1px solid #EEEEEE;
-  font-weight:bold;
-  padding:9px;
+  padding:5px;
 }
 .submit{
   color:#333;
-  padding:8px;
-  margin-left:0;
-  margin-right:0;
-  text-shadow:1px 1px 0 #FFF;
-  border: 1px solid #CCC;
-  background: -moz-linear-gradient(center top, #F9F9F9, #E0E0E0) repeat scroll 0 0 transparent;
-}
-.submit:hover{
-  border: 1px solid #AAA;
-}
-.submit:active{
-  padding:9px 7px 7px 9px;
-  background: -moz-linear-gradient(center top, #E0E0E0, #F9F9F9) repeat scroll 0 0 transparent;
-}
-.text_field:focus, .textarea:focus, select:focus, .submit:focus, .text_field:hover, .textarea:hover, select:hover{
-  border: 1px solid #CCC;
+  font-weight:bold;
+  margin:0;
 }
 /***** Flash Messages *****/
 .notice, .alert, .note {
