@@ -86,14 +86,14 @@ h3 {
       -webkit-border-radius: 5px 5px 0 0;
     }
     #menu a:hover{
-      color:#999;
+      color:#000;
       background-color:#F1F1F1;
     }
     #menu a.selected{
       background-color:#FFFFFF;
       border:1px solid #DDDDDD;
       border-bottom:none;
-      color:#0077CC;
+      color:#000;
       padding-bottom:11px;
     }
 

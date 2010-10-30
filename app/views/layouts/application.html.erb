@@ -11,14 +11,14 @@
     <div class="content">
       <h1><%= link_to 'StoreMate', root_path %></h1>
       <ul>
-        <li><%= link_to_unless_current('Help', page_path('help')) {|name, link| link_to name, link, :class => 'selected' } %></li>
+        <li><%= link_to_unless_current(t(:help), page_path('help')) {|name, link| link_to name, link, :class => 'selected' } %></li>
       </ul>
     </div>
   </div>
   <div id="body" class="content">
     <div id="menu">
       <ul>
-        <li><%= link_to_unless_current('Home', root_path) {|name, link| link_to name, link, :class => 'selected' } %></li>
+        <li><%= link_to_unless_current(t(:home), root_path) {|name, link| link_to name, link, :class => 'selected' } %></li>
       </ul>
     </div>
     <div id="container">
