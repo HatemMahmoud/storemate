@@ -1,23 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= "#{@title} - " if @title %>StoreMate</title>
+  <title><%= @title.titleize + ' - StoreMate' %></title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
-  <div id="header"> 
+  <div id="header">
     <div class="content">
-      <h1><%= link_to 'StoreMate', root_path %></h1>
+      <h1 id="logo"><%= link_to 'StoreMate', root_path %></h1>
       <ul>
-        <% if user_signed_in? %>
-          <li><%= link_to_unless_current(current_user.email, edit_user_registration_path) {|name, link| link_to name, link, :class => 'selected' } %></li>
-          <li><%= link_to "Sign out", destroy_user_session_path %></li>
-        <% else %>
-          <li><%= link_to_unless_current('Sign in', new_user_session_path) {|name, link| link_to name, link, :class => 'selected' } %></li>
-          <li><%= link_to_unless_current('Sign up', new_user_registration_path) {|name, link| link_to name, link, :class => 'selected' } %></li>
-        <% end %>
         <li><%= link_to_unless_current('Help', page_path('help')) {|name, link| link_to name, link, :class => 'selected' } %></li>
       </ul>
     </div>
@@ -29,9 +22,6 @@
       </ul>
     </div>
     <div id="container">
-      <% if @title %>
-        <h2><%= @title %></h2>
-      <% end %>
       <%- flash.each do |name, message| -%>
         <%= content_tag :p, message, :class => name %>
       <%- end -%>
