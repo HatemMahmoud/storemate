@@ -1,3 +1,32 @@
 ar:
+  dir: rtl
+  app_name: StoreMate
+  
   home: الرئيسية
   help: مساعدة
+  
+  edit: تعديل
+  delete: حذف
+  
+  companies:
+    index:
+      title: شركات
+      empty: لا توجد شركات.
+    new:
+      title: شركة جديدة
+    edit:
+      title: تعديل شركة
+  
+  helpers:
+    label:
+      
+    submit:
+      create: إضافة {{model}}
+      update: حفظ {{model}}
+      
+  activerecord:
+    models:
+      company: شركة
+    attributes:
+      company:
+        name: الإسم

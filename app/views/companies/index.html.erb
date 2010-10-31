@@ -1,0 +1,25 @@
+<% @title = t '.title' %>
+<% content_for :actions do %>
+  <ul>
+    <li><%= link_to t('companies.new.title'), new_company_path %></li>
+  </ul>
+<% end %>
+
+<% if @companies.empty? %>
+  <p><%= t('.empty') %></p>
+<% else %>
+  <table>
+    <tr>
+      <th><%= t('activerecord.attributes.company.name') %></th>
+      <th class="action"><%= t('edit') %></th>
+      <th class="action"><%= t('delete') %></th>
+    </tr>
+    <% @companies.each do |company| %>
+      <tr class="<%= cycle 'odd', '' %>">
+        <td><%= link_to company.name, company %></td>
+        <td><%= link_to t('edit'), edit_company_path(company), :class => 'edit' %></td>
+        <td><%= link_to t('delete'), company, :confirm => "#{t('delete')} '#{company.name}'?", :method => :delete, :class => 'delete' %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

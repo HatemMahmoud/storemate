@@ -10,16 +10,17 @@ h1, h2, h3 {
     font-family: "Trebuchet MS";
 }
 h1 {
-    border: none;
-    float:left;
-    font-size:17px;
-    margin:0;
-}
-h2 {
     border-bottom: 1px solid #DDD;
     font-size: 22px;
     padding: 0 0 10px;
+    margin-bottom:0;
     color:#000;
+}
+h2 {
+    border-bottom:1px solid #DDD;
+    font-size:17px;
+    padding:5px 0;
+    color:#333;
 }
 h3 {
     border-bottom:1px solid #DDD;
@@ -40,6 +41,13 @@ h3 {
   border-bottom:3px solid #666666;
   margin:0 0 20px;
 }
+    #header h1 {
+        border: none;
+        float:left;
+        font-size:17px;
+        margin:0;
+        padding:0;
+    }
     #header a{
       color:#999;
       font-weight:bold;
@@ -87,7 +95,7 @@ h3 {
     }
     #menu a:hover{
       color:#000;
-      background-color:#F1F1F1;
+      background-color:#EEE;
     }
     #menu a.selected{
       background-color:#FFFFFF;
@@ -100,7 +108,7 @@ h3 {
 #container {
   margin:37px 0 0;
   overflow:auto;
-  padding:10px;
+  padding:10px 10px 20px;
   background-color:#FFFFFF;
   border:1px solid #DDDDDD;
   border-radius: 0 5px 5px 5px;
@@ -136,10 +144,12 @@ h3 {
   font-size:34px;
   margin:60px 0 10px;
   text-align:center;
+  border:none;
 }
 #features h2{
   padding:0 0 50px;
   text-align:center;
+  font-size: 22px;
 }
 #features h3{
   font-size:16px;
@@ -153,14 +163,6 @@ h3 {
   font-size: 10px;
   color: #999;
 }
-.add, .edit, .delete{
-  float: right;
-  margin:0 0 0 5px;
-  padding:0;
-}
-.add:hover, .edit:hover, .delete:hover{
-  background: none;
-}
 /***** Links *****/
 a {
     color: #0077CC;
@@ -172,12 +174,20 @@ a {
     -webkit-border-radius: 3px; 
 }
 a:hover {
-    color: #FFFFFF;
-    background-color: #0077CC;
+  color: #FFF;
+  background-color: #0077CC;
 }
-a img {
-    border: none;
-    vertical-align: middle;
+a.edit, a.delete{
+  font-size: 10px;
+  font-weight: bold;
+  color: #FFF;
+  background-color: #CCC;
+}
+a.edit:hover{
+  background-color: #0077CC;
+}
+a.delete:hover{
+  background-color: #CC0000;
 }
 /***** Lists *****/
 ul.list{
@@ -185,44 +195,78 @@ ul.list{
   margin: 0 0 10px;
   padding: 0;
 }
+/***** Tables *****/
+table{
+  width: 100%;
+  border-collapse:collapse;
+}
+tr.odd{
+  background-color:#F9F9F9;
+}
+th{
+  border-bottom:1px solid #EEE;
+  text-align:left;
+  padding:5px;
+}
+th.action{
+  width:5%;
+}
+td{
+  border-bottom:1px solid #EEE;
+  padding:5px;
+}
 /***** Forms *****/
 form {
     margin: 0px;
     padding: 0px;
 }
-input, select, textarea {
-    font: inherit;
+label, input, select, textarea {
+  font: inherit;
+  padding:5px;
 }
-.field, .actions{
-  margin: 16px 0;
-  overflow:auto;
+fieldset{
+  margin:10px 0;
+  border: none;
 }
 .actions{
   text-align:right;
+  font-weight:bold;
 }
+    .actions ul{
+      float:right;
+    }
+    .actions li{
+      display: inline;
+      margin:0 0 0 10px;
+    }
+    .actions a{
+      font-size:10px;
+      background-color:#0077CC;
+      color:#FFFFFF;
+      padding:5px 10px;
+    }
+    .actions a:hover{
+      background-color:#000;
+      padding:5px 10px;
+    }
 .checkbox{
   margin:5px;
 }
 label{
   display:block;
   float:left;
-  padding:5px;
   text-align:right;
   width:150px;
   font-weight:bold; 
 }
-.text_field{
+.text_field, textarea{
   width: 540px;
 }
 select{
   width: 560px;
 }
-.textarea{
-  width: 540px;
+textarea{
   height: 130px;
-}
-.text_field, .textarea, select, .submit{
-  padding:5px;
 }
 .submit{
   color:#333;
@@ -254,12 +298,13 @@ select{
 }
 /***** Scaffold Errors *****/
 .field_with_errors input, .field_with_errors textarea, .field_with_errors select {
-    border: 1px solid #CC0000;
+    border: 1px solid #E88C8C;
 }
 #error_explanation {
   background-color: #FFEBEB;
-  border: 2px solid #E88C8C;
-  padding: 0pt 15px;
+  border: 1px solid #E88C8C;
+  margin:10px 0;
+  padding:5px 10px;
   border-radius: 5px;
   -moz-border-radius: 5px; 
   -webkit-border-radius: 5px; 

@@ -1,3 +1,39 @@
 en:
+  dir: ltr
+  app_name: StoreMate
+  
   home: Home
   help: Help
+  
+  edit: Edit
+  delete: Delete
+  created: "{{model}} created successfully."
+  updated: "{{model}} updated successfully."
+  
+  companies:
+    index:
+      title: Companies
+      empty: No companies.
+    new:
+      title: New Company
+    edit:
+      title: Edit Company
+  
+  helpers:
+    label:
+      
+    submit:
+      create: Create {{model}}
+      update: Update {{model}}
+      
+  activerecord:
+    models:
+      company: Company
+    attributes:
+      company:
+        name: Name
+        
+  errors:
+    messages:
+      taken: 'has already been taken'
+      too_short: "is too short (minimum is {{count}} characters)"
