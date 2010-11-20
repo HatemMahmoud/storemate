@@ -17,8 +17,6 @@ en:
     sessions:
       signed_in: Welcome back!
       signed_out: 'Signed out successfully.'
-      new:
-        title: Sign In
     passwords:
       send_instructions: 'You should receive an email with instructions to reset your password in a few minutes.'
       updated: 'Your password was changed successfully. You are now signed in.'

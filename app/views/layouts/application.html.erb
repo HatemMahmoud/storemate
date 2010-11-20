@@ -12,10 +12,10 @@
       <h1><%= link_to t(:app_name), root_path %></h1>
       <ul>
         <% if user_signed_in? %>
-          <li><%= link_to_unless_current(current_user.email, edit_user_path(current_user)) {|name, link| link_to name, link, :class => 'selected' } %></li>
-          <li><%= link_to "Sign out", destroy_user_session_path %></li>
+          <li><%= link_to_unless_current(current_user.name, edit_user_path(current_user)) {|name, link| link_to name, link, :class => 'selected' } %></li>
+          <li><%= link_to t('sign_out'), destroy_user_session_path %></li>
         <% else %>
-          <li><%= link_to_unless_current('Sign in', new_user_session_path) {|name, link| link_to name, link, :class => 'selected' } %></li>
+          <li><%= link_to_unless_current(t('sign_in'), new_user_session_path) {|name, link| link_to name, link, :class => 'selected' } %></li>
         <% end %>
         <li><%= link_to_unless_current(t(:help), page_path('help')) {|name, link| link_to name, link, :class => 'selected' } %></li>
       </ul>

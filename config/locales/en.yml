@@ -5,6 +5,8 @@ en:
   home: Home
   help: Help
   
+  sign_in: Sign In
+  sign_out: Sign Out
   edit: Edit
   delete: Delete
   created: "{{model}} created successfully."
