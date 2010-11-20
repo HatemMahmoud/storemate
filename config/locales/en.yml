@@ -9,6 +9,7 @@ en:
   delete: Delete
   created: "{{model}} created successfully."
   updated: "{{model}} updated successfully."
+  created_at: Date Created
   
   companies:
     cannot_be_deleted: Company can't be deleted! You must delete all stores.
@@ -28,6 +29,15 @@ en:
       title: New Store
     edit:
       title: Edit Store
+      
+  users:
+    index:
+      title: Users
+      empty: No users.
+    new:
+      title: New User
+    edit:
+      title: Edit User
   
   helpers:
     label:
@@ -40,10 +50,10 @@ en:
     models:
       company: Company
       store: Store
+      user: User
     attributes:
       company:
         name: Name
-        created_at: Date Created
       store:
         name: Name
         phone: Phone
@@ -54,6 +64,9 @@ en:
         city: City
         postal_code: Postal code
         country: Country
+      user:
+        name: Name
+        email: Email
         
   errors:
     messages:

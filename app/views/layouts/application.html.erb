@@ -11,6 +11,12 @@
     <div class="content">
       <h1><%= link_to t(:app_name), root_path %></h1>
       <ul>
+        <% if user_signed_in? %>
+          <li><%= link_to_unless_current(current_user.email, edit_user_path(current_user)) {|name, link| link_to name, link, :class => 'selected' } %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path %></li>
+        <% else %>
+          <li><%= link_to_unless_current('Sign in', new_user_session_path) {|name, link| link_to name, link, :class => 'selected' } %></li>
+        <% end %>
         <li><%= link_to_unless_current(t(:help), page_path('help')) {|name, link| link_to name, link, :class => 'selected' } %></li>
       </ul>
     </div>
@@ -18,10 +24,14 @@
   <div id="body" class="content">
     <div id="menu">
       <ul>
-        <li><%= link_to_unless_current(t(:home), root_path) {|name, link| link_to name, link, :class => 'selected' } %></li>
-        <li><%= link_to t('activerecord.models.company').pluralize, companies_path, :class => controller_name=='companies' ? 'selected' : '' %></li>
-        <% if params[:company_id] %>
-          <li><%= link_to t('activerecord.models.store').pluralize, company_stores_path(Company.find(params[:company_id])), :class => controller_name=='stores' ? 'selected' : '' %></li>
+        <% unless user_signed_in? %>
+          <li><%= link_to_unless_current(t(:home), root_path) {|name, link| link_to name, link, :class => 'selected' } %></li>
+        <% else %>
+          <li><%= link_to t('activerecord.models.company').pluralize, companies_path, :class => controller_name=='companies' ? 'selected' : '' %></li>
+          <% if params[:company_id] %>
+            <li><%= link_to t('activerecord.models.store').pluralize, company_stores_path(Company.find(params[:company_id])), :class => controller_name=='stores' ? 'selected' : '' %></li>
+          <% end %>
+          <li><%= link_to t('activerecord.models.user').pluralize, users_path, :class => controller_name=='users' ? 'selected' : '' %></li>
         <% end %>
       </ul>
     </div>
