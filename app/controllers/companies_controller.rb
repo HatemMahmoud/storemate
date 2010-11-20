@@ -36,7 +36,11 @@ class CompaniesController < ApplicationController
 
   def destroy
     @company = Company.find(params[:id])
-    @company.destroy
-    redirect_to companies_url
+    if @company.stores.size > 0
+      redirect_to companies_path, :alert => t('companies.cannot_be_deleted')
+    else
+      @company.destroy
+      redirect_to companies_path
+    end
   end
 end

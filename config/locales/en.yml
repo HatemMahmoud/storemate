@@ -11,6 +11,7 @@ en:
   updated: "{{model}} updated successfully."
   
   companies:
+    cannot_be_deleted: Company can't be deleted! You must delete all stores.
     index:
       title: Companies
       empty: No companies.
@@ -18,6 +19,15 @@ en:
       title: New Company
     edit:
       title: Edit Company
+      
+  stores:
+    index:
+      title: Stores
+      empty: No stores.
+    new:
+      title: New Store
+    edit:
+      title: Edit Store
   
   helpers:
     label:
@@ -29,9 +39,21 @@ en:
   activerecord:
     models:
       company: Company
+      store: Store
     attributes:
       company:
         name: Name
+        created_at: Date Created
+      store:
+        name: Name
+        phone: Phone
+        mobile: Mobile
+        email: Email
+        website: Website
+        street: Street
+        city: City
+        postal_code: Postal code
+        country: Country
         
   errors:
     messages:

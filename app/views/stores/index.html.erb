@@ -1,0 +1,30 @@
+<% @title = t('.title') %>
+<% content_for :actions do %>
+  <ul>
+    <li><%= link_to t('stores.new.title'), new_company_store_path(@company) %></li>
+  </ul>
+<% end %>
+<% if @stores.empty? %>
+  <p><%= t('.empty') %></p>
+<% else %>
+  <table>
+    <tr>
+      <th><%= t('activerecord.models.store') %></th>
+      <th><%= t('activerecord.attributes.store.phone') %></th>
+      <th><%= t('activerecord.attributes.store.mobile') %></th>
+      <th><%= t('activerecord.attributes.store.email') %></th>
+      <th class="action"><%= t('edit') %></th>
+      <th class="action"><%= t('delete') %></th>
+    </tr>
+    <% @stores.each do |store| %>
+      <tr class="<%= cycle 'odd', '' %>">
+        <td><%= link_to store.name, company_store_path(@company, store) %></td>
+        <td><%= store.phone %></td>
+        <td><%= store.mobile %></td>
+        <td><%= store.email %></td>
+        <td><%= link_to t('edit'), edit_company_store_path(@company, store), :class => 'edit' %></td>
+        <td><%= link_to t('delete'), company_store_path(@company, store), :confirm => "#{t('delete')} '#{store.name}'?", :method => :delete, :class => 'delete' %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

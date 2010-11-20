@@ -11,12 +11,16 @@
   <table>
     <tr>
       <th><%= t('activerecord.attributes.company.name') %></th>
+      <th><%= t('activerecord.models.store').pluralize %></th>
+      <th><%= t('activerecord.attributes.company.created_at') %></th>
       <th class="action"><%= t('edit') %></th>
       <th class="action"><%= t('delete') %></th>
     </tr>
     <% @companies.each do |company| %>
       <tr class="<%= cycle 'odd', '' %>">
         <td><%= link_to company.name, company %></td>
+        <td><%= link_to company.stores.size, company_stores_path(company) %></td>
+        <td><%= company.created_at %></td>
         <td><%= link_to t('edit'), edit_company_path(company), :class => 'edit' %></td>
         <td><%= link_to t('delete'), company, :confirm => "#{t('delete')} '#{company.name}'?", :method => :delete, :class => 'delete' %></td>
       </tr>

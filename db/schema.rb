@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101030115144) do
+ActiveRecord::Schema.define(:version => 20101118095213) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -19,5 +19,20 @@ ActiveRecord::Schema.define(:version => 20101030115144) do
   end
 
   add_index "companies", ["name"], :name => "index_companies_on_name", :unique => true
+
+  create_table "stores", :force => true do |t|
+    t.integer  "company_id"
+    t.string   "name"
+    t.string   "phone"
+    t.string   "mobile"
+    t.string   "email"
+    t.string   "website"
+    t.string   "street"
+    t.string   "city"
+    t.string   "postal_code"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

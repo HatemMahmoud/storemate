@@ -19,7 +19,10 @@
     <div id="menu">
       <ul>
         <li><%= link_to_unless_current(t(:home), root_path) {|name, link| link_to name, link, :class => 'selected' } %></li>
-        <li><%= link_to t('companies.index.title'), companies_path, :class => controller_name == 'companies' ? 'selected' : '' %></li>
+        <li><%= link_to t('activerecord.models.company').pluralize, companies_path, :class => controller_name=='companies' ? 'selected' : '' %></li>
+        <% if params[:company_id] %>
+          <li><%= link_to t('activerecord.models.store').pluralize, company_stores_path(Company.find(params[:company_id])), :class => controller_name=='stores' ? 'selected' : '' %></li>
+        <% end %>
       </ul>
     </div>
     <div id="container">

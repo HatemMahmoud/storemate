@@ -17,6 +17,15 @@ ar:
     edit:
       title: تعديل شركة
   
+  stores:
+    index:
+      title: متجر
+      empty: لا توجد متاجر.
+    new:
+      title: متجر جديد
+    edit:
+      title: تعديل متجر
+  
   helpers:
     label:
       
@@ -27,6 +36,9 @@ ar:
   activerecord:
     models:
       company: شركة
+      store: متجر
     attributes:
       company:
+        name: الإسم
+      store:
         name: الإسم

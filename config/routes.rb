@@ -1,5 +1,7 @@
 Storemate::Application.routes.draw do
-  resources :companies
+  resources :companies do
+    resources :stores
+  end
 
   resources :pages, :only => :show
   root :to => "pages#show", :id => :home
