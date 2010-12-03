@@ -69,6 +69,7 @@ en:
       user:
         name: Name
         email: Email
+        role: Role
         
   errors:
     messages:

@@ -1,4 +1,5 @@
 class StoresController < ApplicationController
+  load_and_authorize_resource
   before_filter :find_company
   before_filter :find_companies, :only => [:new, :edit, :create, :update]
   before_filter :find_store, :only => [:show, :edit, :update, :destroy]

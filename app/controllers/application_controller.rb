@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
   
   before_filter :set_locale, :authenticate_user!
   
+  check_authorization
+  
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message 
+  end
+  
   private
     
   def set_locale

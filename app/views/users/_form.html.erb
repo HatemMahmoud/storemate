@@ -13,6 +13,12 @@
     <%= f.label :name %>
     <%= f.text_field :name, :class => 'text_field' %>
   </fieldset>
+  <% if can? :assign_roles, @user %>
+    <fieldset>
+      <%= f.label :role %>
+      <%= f.collection_select :role, User::ROLES, :to_s, :humanize, :include_blank => true %>
+    </fieldset>
+  <% end %>
   <fieldset>
     <%= f.label :email %>
     <%= f.text_field :email, :class => 'text_field' %>

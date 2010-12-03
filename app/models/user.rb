@@ -1,11 +1,10 @@
 class User < ActiveRecord::Base
   belongs_to :store
   
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
   
   validates :name, :presence => true, :uniqueness => {:scope => :store_id}, :length => { :within => 3..50, :allow_blank => true }
+  validates :role, :presence => true
   
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :registerable, :confirmable, :lockable and :timeoutable
-  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
+  ROLES = %w[admin manager cashier banned]
 end

@@ -1,8 +1,11 @@
 Storemate::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :sessions => "users/sessions" }
   resources :users
+  # resources :companies, :shallow => true do
   resources :companies do
-    resources :stores
+    resources :stores do
+      resources :users
+    end
   end
 
   resources :pages, :only => :show
