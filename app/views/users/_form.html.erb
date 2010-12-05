@@ -13,10 +13,16 @@
     <%= f.label :name %>
     <%= f.text_field :name, :class => 'text_field' %>
   </fieldset>
-  <% if can? :assign_roles, @user %>
+  <% if can? :assign_role, @user %>
     <fieldset>
       <%= f.label :role %>
-      <%= f.collection_select :role, User::ROLES, :to_s, :humanize, :include_blank => true %>
+      <%= f.collection_select :role, @roles, :to_s, :titleize, :include_blank => true %>
+    </fieldset>
+  <% end %>
+  <% if can? :assign_store, @user %>
+    <fieldset>
+      <%= f.label :store %>
+      <%= f.select :store_id, @stores.map { |store| [store.full_name, store.id] }, :include_blank => true %>
     </fieldset>
   <% end %>
   <fieldset>

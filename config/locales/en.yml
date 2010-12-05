@@ -14,7 +14,7 @@ en:
   created_at: Date Created
   
   companies:
-    cannot_be_deleted: Company can't be deleted! You must delete all stores.
+    cannot_be_deleted: Company can't be deleted! You must delete all stores first.
     index:
       title: Companies
       empty: No companies.

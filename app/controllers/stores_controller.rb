@@ -1,27 +1,22 @@
 class StoresController < ApplicationController
-  load_and_authorize_resource
-  before_filter :find_company
-  before_filter :find_companies, :only => [:new, :edit, :create, :update]
-  before_filter :find_store, :only => [:show, :edit, :update, :destroy]
+  load_and_authorize_resource :company
+  load_and_authorize_resource :store, :through => :company
   
   def index
-    @stores = @company.stores
   end
 
   def show
   end
 
   def new
-    @store = @company.stores.new
   end
 
   def edit
   end
 
   def create
-    @store = @company.stores.new(params[:store])
     if @store.save
-      redirect_to company_store_path(@company, @store), :notice => t('created', :model => 'Store')
+      redirect_to company_stores_path(@company), :notice => t('created', :model => 'Store')
     else
       render :new
     end
@@ -29,7 +24,7 @@ class StoresController < ApplicationController
 
   def update
     if @store.update_attributes(params[:store])
-      redirect_to company_store_path(@company, @store), :notice => t('updated', :model => 'Store')
+      redirect_to company_stores_path(@company), :notice => t('updated', :model => 'Store')
     else
       render :edit
     end
@@ -39,18 +34,5 @@ class StoresController < ApplicationController
     @store.destroy
     redirect_to company_stores_path(@company)
   end
-  
-  private
-  
-  def find_company
-    @company = Company.find(params[:company_id])
-  end
-  
-  def find_companies
-    @companies = Company.all
-  end
-  
-  def find_store
-    @store = @company.stores.find(params[:id])
-  end
+
 end

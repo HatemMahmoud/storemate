@@ -27,13 +27,13 @@
         <% unless user_signed_in? %>
           <li><%= link_to_unless_current(t(:home), root_path) {|name, link| link_to name, link, :class => 'selected' } %></li>
         <% else %>
-          <% if can? :manage, Company %>
+          <% if can? :read, Company %>
             <li><%= link_to t('activerecord.models.company').pluralize, companies_path, :class => controller_name=='companies' ? 'selected' : '' %></li>
           <% end %>
-          <% if params[:company_id] %>
-            <li><%= link_to t('activerecord.models.store').pluralize, company_stores_path(Company.find(params[:company_id])), :class => controller_name=='stores' ? 'selected' : '' %></li>
+          <% if params[:company_id] && can?(:read, Store) %>
+            <li><%= link_to t('activerecord.models.store').pluralize, company_stores_path(params[:company_id]), :class => controller_name=='stores' ? 'selected' : '' %></li>
           <% end %>
-          <% if can? :manage, User %>
+          <% if can? :read, User %>
             <li><%= link_to t('activerecord.models.user').pluralize, users_path, :class => controller_name=='users' ? 'selected' : '' %></li>
           <% end %>
         <% end %>

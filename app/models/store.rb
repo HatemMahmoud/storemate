@@ -6,4 +6,8 @@ class Store < ActiveRecord::Base
   
   validates :company_id, :presence => true
   validates :name, :presence => true, :uniqueness => {:scope => :company_id}, :length => { :within => 3..50, :allow_blank => true }
+  
+  def full_name
+    "#{company.name} - #{name}"
+  end
 end

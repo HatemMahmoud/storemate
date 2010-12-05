@@ -6,5 +6,20 @@ class User < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => {:scope => :store_id}, :length => { :within => 3..50, :allow_blank => true }
   validates :role, :presence => true
   
-  ROLES = %w[admin manager cashier banned]
+  ROLES = %w[admin company_manager store_manager cashier banned]
+  
+  def company
+    store.company
+  end
+  
+  def company_id
+    store.company_id
+  end
+
+  protected
+  
+  def password_required?
+    !persisted? || password.present? || password_confirmation.present?
+  end
+
 end

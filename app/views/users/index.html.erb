@@ -1,7 +1,13 @@
 <% @title = t '.title' %>
 <% content_for :actions do %>
   <ul>
-    <li><%= link_to t('users.new.title'), new_user_path %></li>
+    <% if can? :creat, User %>
+      <% if params[:company_id] && params[:store_id] %>
+        <li><%= link_to t('users.new.title'), new_company_store_user_path(params[:company_id], params[:store_id]) %></li>
+      <% else %>
+        <li><%= link_to t('users.new.title'), new_user_path %></li>
+      <% end %>
+    <% end %>
   </ul>
 <% end %>
 
@@ -15,18 +21,28 @@
       <th><%= t('activerecord.models.company') %></th>
       <th><%= t('activerecord.models.store') %></th>
       <th><%= t('created_at') %></th>
-      <th class="action"><%= t('edit') %></th>
-      <th class="action"><%= t('delete') %></th>
+      <% if can? :update, User %>
+        <th class="action"><%= t('edit') %></th>
+      <% end %>
+      <% if can? :destroy, User %>
+        <th class="action"><%= t('delete') %></th>
+      <% end %>
     </tr>
     <% @users.each do |user| %>
       <tr class="<%= cycle 'odd', '' %>">
         <td><%= link_to user.name, user %></td>
-        <td><%= user.role %></td>
+        <td><%= user.role.titleize %></td>
         <td><%= user.store.company.name if user.store %></td>
         <td><%= user.store.name if user.store %></td>
         <td><%= user.created_at %></td>
-        <td><%= link_to t('edit'), edit_user_path(user), :class => 'edit' %></td>
-        <td><%= link_to t('delete'), user, :confirm => "#{t('delete')} '#{user.name}'?", :method => :delete, :class => 'delete' %></td>
+        <td>
+        <% if can? :update, user %>
+          <%= link_to t('edit'), edit_user_path(user), :class => 'edit' %>
+        <% end %>
+        </td>
+        <% if can? :destroy, User %>
+          <td><%= link_to t('delete'), user, :confirm => "#{t('delete')} '#{user.name}'?", :method => :delete, :class => 'delete' %></td>
+        <% end %>
       </tr>
     <% end %>
   </table>
