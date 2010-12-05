@@ -10,17 +10,19 @@ class Ability
       when 'company_manager'
         can [:read, :update], Company, :id => user.company_id
         can :manage, Store, :company_id => user.company_id
-        can :assign_store, User
         can [:read, :update], User, :store => {:company_id => user.company_id}
+        can :assign_store, User
         can :assign_role, User
-        #can :manage, Product, :store => {:company_id => user.company_id}
+        can :manage, Category, :company_id => user.company_id
       when 'store_manager'
         can :read, Company, :id => user.company_id
         can :read, Store, :id => user.store_id
         can :read, User, :store => {:company_id => user.company_id}
+        can :read, Category, :company_id => user.company_id
       when 'cashier'
         can :read, Company, :id => user.company_id
         can :read, Store, :id => user.store_id
+        can :read, Category, :company_id => user.company_id
     end
   end
 end

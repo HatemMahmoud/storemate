@@ -13,7 +13,8 @@
   <table>
     <tr>
       <th><%= t('activerecord.attributes.company.name') %></th>
-      <th><%= t('activerecord.models.store').pluralize %></th>
+      <th><%= t('activerecord.models.stores') %></th>
+      <th><%= t('activerecord.models.categories') %></th>
       <th><%= t('created_at') %></th>
       <% if can? :edit, Company %>
         <th class="action"><%= t('edit') %></th>
@@ -26,6 +27,7 @@
       <tr class="<%= cycle 'odd', '' %>">
         <td><%= link_to company.name, company %></td>
         <td><%= link_to company.stores.size, company_stores_path(company) %></td>
+        <td><%= link_to company.categories.size, company_categories_path(company) %></td>
         <td><%= company.created_at %></td>
         <% if can? :update, Company %>
           <td><%= link_to t('edit'), edit_company_path(company), :class => 'edit' %></td>

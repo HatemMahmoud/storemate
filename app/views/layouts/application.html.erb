@@ -28,13 +28,16 @@
           <li><%= link_to_unless_current(t(:home), root_path) {|name, link| link_to name, link, :class => 'selected' } %></li>
         <% else %>
           <% if can? :read, Company %>
-            <li><%= link_to t('activerecord.models.company').pluralize, companies_path, :class => controller_name=='companies' ? 'selected' : '' %></li>
+            <li><%= link_to t('activerecord.models.companies'), companies_path, :class => controller_name=='companies' ? 'selected' : '' %></li>
           <% end %>
           <% if params[:company_id] && can?(:read, Store) %>
-            <li><%= link_to t('activerecord.models.store').pluralize, company_stores_path(params[:company_id]), :class => controller_name=='stores' ? 'selected' : '' %></li>
+            <li><%= link_to t('activerecord.models.stores'), company_stores_path(params[:company_id]), :class => controller_name=='stores' ? 'selected' : '' %></li>
+          <% end %>
+          <% if params[:company_id] && can?(:read, Category) %>
+            <li><%= link_to t('activerecord.models.categories'), company_categories_path(params[:company_id]), :class => controller_name=='categories' ? 'selected' : '' %></li>
           <% end %>
           <% if can? :read, User %>
-            <li><%= link_to t('activerecord.models.user').pluralize, users_path, :class => controller_name=='users' ? 'selected' : '' %></li>
+            <li><%= link_to t('activerecord.models.users'), users_path, :class => controller_name=='users' ? 'selected' : '' %></li>
           <% end %>
         <% end %>
       </ul>

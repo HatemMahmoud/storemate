@@ -40,6 +40,16 @@ en:
       title: New User
     edit:
       title: Edit User
+   
+  categories:
+    cannot_be_deleted: Category can't be deleted! You must delete all products first.
+    index:
+      title: Categories
+      empty: No categories.
+    new:
+      title: New Category
+    edit:
+      title: Edit Category
   
   helpers:
     label:
@@ -51,8 +61,13 @@ en:
   activerecord:
     models:
       company: Company
+      companies: Companies
       store: Store
+      stores: Stores
       user: User
+      users: Users
+      category: Category
+      categories: Categories
     attributes:
       company:
         name: Name
@@ -70,6 +85,9 @@ en:
         name: Name
         email: Email
         role: Role
+      category:
+        name: Name
+        description: Description
         
   errors:
     messages:
