@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101205100454) do
+ActiveRecord::Schema.define(:version => 20101207043410) do
 
   create_table "categories", :force => true do |t|
     t.integer  "company_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20101205100454) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "categories_count", :default => 0
   end
 
   add_index "companies", ["name"], :name => "index_companies_on_name", :unique => true
