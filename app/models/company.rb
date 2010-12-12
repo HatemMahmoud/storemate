@@ -1,4 +1,5 @@
 class Company < ActiveRecord::Base
+  has_many :suppliers, :dependent => :destroy
   has_many :stores, :dependent => :destroy
   has_many :categories, :dependent => :destroy
   

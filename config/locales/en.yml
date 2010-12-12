@@ -23,6 +23,15 @@ en:
     edit:
       title: Edit Company
       
+  suppliers:
+    index:
+      title: Suppliers
+      empty: No suppliers.
+    new:
+      title: New Supplier
+    edit:
+      title: Edit Supplier
+      
   stores:
     index:
       title: Stores
@@ -71,6 +80,8 @@ en:
     models:
       company: Company
       companies: Companies
+      supplier: Supplier
+      suppliers: Suppliers
       store: Store
       stores: Stores
       user: User
@@ -82,6 +93,17 @@ en:
     attributes:
       company:
         name: Name
+      supplier:
+        name: Name
+        contact_person: Contact person
+        phone: Phone
+        mobile: Mobile
+        email: Email
+        website: Website
+        street: Street
+        city: City
+        postal_code: Postal code
+        country: Country
       store:
         name: Name
         phone: Phone

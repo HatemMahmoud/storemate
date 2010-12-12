@@ -30,6 +30,9 @@
           <% if can? :read, Company %>
             <li><%= link_to t('activerecord.models.companies'), companies_path, :class => controller_name=='companies' ? 'selected' : '' %></li>
           <% end %>
+          <% if params[:company_id] && can?(:read, Supplier) %>
+            <li><%= link_to t('activerecord.models.suppliers'), company_suppliers_path(params[:company_id]), :class => controller_name=='suppliers' ? 'selected' : '' %></li>
+          <% end %>
           <% if params[:company_id] && can?(:read, Store) %>
             <li><%= link_to t('activerecord.models.stores'), company_stores_path(params[:company_id]), :class => controller_name=='stores' ? 'selected' : '' %></li>
           <% end %>

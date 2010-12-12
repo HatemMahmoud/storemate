@@ -13,6 +13,7 @@
   <table>
     <tr>
       <th><%= t('activerecord.attributes.company.name') %></th>
+      <th><%= t('activerecord.models.suppliers') %></th>
       <th><%= t('activerecord.models.stores') %></th>
       <th><%= t('activerecord.models.categories') %></th>
       <th><%= t('created_at') %></th>
@@ -26,7 +27,8 @@
     <% @companies.each do |company| %>
       <tr class="<%= cycle 'odd', '' %>">
         <td><%= link_to company.name, company %></td>
-        <td><%= link_to company.stores.size, company_stores_path(company) %></td>
+        <td><%= link_to company.suppliers_count, company_suppliers_path(company) %></td>
+        <td><%= link_to company.stores_count, company_stores_path(company) %></td>
         <td><%= link_to company.categories_count, company_categories_path(company) %></td>
         <td><%= company.created_at %></td>
         <% if can? :update, Company %>

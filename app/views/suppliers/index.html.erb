@@ -1,0 +1,43 @@
+<% @title = t('.title') %>
+<% content_for :actions do %>
+  <ul>
+    <% if can? :creat, Supplier %>
+      <li><%= link_to t('suppliers.new.title'), new_company_supplier_path(@company) %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if @suppliers.empty? %>
+  <p><%= t('.empty') %></p>
+<% else %>
+  <table>
+    <tr>
+      <th><%= t('activerecord.attributes.supplier.name') %></th>
+      <th><%= t('activerecord.attributes.supplier.contact_person') %></th>
+      <th><%= t('activerecord.attributes.supplier.phone') %></th>
+      <th><%= t('activerecord.attributes.supplier.mobile') %></th>
+      <th><%= t('activerecord.attributes.supplier.email') %></th>
+      <% if can? :update, Supplier %>
+        <th class="action"><%= t('edit') %></th>
+      <% end %>
+      <% if can? :destroy, Supplier %>
+        <th class="action"><%= t('delete') %></th>
+      <% end %>
+    </tr>
+    <% @suppliers.each do |supplier| %>
+      <tr class="<%= cycle 'odd', '' %>">
+        <td><%= link_to supplier.name, company_supplier_path(@company, supplier) %></td>
+        <td><%= supplier.contact_person %></td>
+        <td><%= supplier.phone %></td>
+        <td><%= supplier.mobile %></td>
+        <td><%= supplier.email %></td>
+        <% if can? :update, Supplier %>
+          <td><%= link_to t('edit'), edit_company_supplier_path(@company, supplier), :class => 'edit' %></td>
+        <% end %>
+        <% if can? :destroy, Supplier %>
+          <td><%= link_to t('delete'), company_supplier_path(@company, supplier), :confirm => "#{t('delete')} '#{supplier.name}'?", :method => :delete, :class => 'delete' %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
