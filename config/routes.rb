@@ -5,6 +5,7 @@ Storemate::Application.routes.draw do
     resources :suppliers
     resources :stores do
       resources :users
+      resources :purchase_orders
     end
     resources :categories do
       resources :products

@@ -36,6 +36,9 @@
           <% if params[:company_id] && can?(:read, Store) %>
             <li><%= link_to t('activerecord.models.stores'), company_stores_path(params[:company_id]), :class => controller_name=='stores' ? 'selected' : '' %></li>
           <% end %>
+          <% if params[:company_id] && params[:store_id] && can?(:read, PurchaseOrder) %>
+            <li><%= link_to t('activerecord.models.purchase_orders'), company_store_purchase_orders_path(params[:company_id], params[:store_id]), :class => controller_name=='purchase_orders' ? 'selected' : '' %></li>
+          <% end %>
           <% if params[:company_id] && can?(:read, Category) %>
             <li><%= link_to t('activerecord.models.categories'), company_categories_path(params[:company_id]), :class => controller_name=='categories' ? 'selected' : '' %></li>
           <% end %>

@@ -40,6 +40,6 @@ class UsersController < ApplicationController
   
   def find_roles_and_stores
     @roles = current_user.admin? ? User::ROLES : User::ROLES-['admin']
-    @stores = current_user.admin? ? Store.order('company_id ASC, name ASC') : current_user.company.stores.order('name')
+    @stores = Store.accessible_by(current_ability).order('name')
   end
 end

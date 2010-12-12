@@ -1,5 +1,6 @@
 class Store < ActiveRecord::Base
   belongs_to :company, :counter_cache => true
+  has_many :purchase_orders, :dependent => :destroy
   has_many :users, :dependent => :destroy
   
   attr_protected :company_id

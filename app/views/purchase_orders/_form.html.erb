@@ -1,0 +1,23 @@
+<%= form_for([@store.company, @store, @purchase_order]) do |f| %>
+  <% if @purchase_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@purchase_order.errors.count, "error") %> prohibited this purchase order from being saved:</h2>
+      <ul>
+      <% @purchase_order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+    <%= f.label :supplier %>
+    <%= f.select :supplier_id, @suppliers.map { |supplier| [supplier.name, supplier.id] }, :include_blank => true %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+  </fieldset>
+    <fieldset class="actions">
+    <%= f.submit %>
+  </fieldset>
+<% end %>

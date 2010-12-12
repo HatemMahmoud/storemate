@@ -34,5 +34,4 @@ class StoresController < ApplicationController
     @store.destroy
     redirect_to company_stores_path(@company)
   end
-
 end

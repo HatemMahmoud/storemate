@@ -9,6 +9,8 @@ en:
   sign_out: Sign Out
   edit: Edit
   delete: Delete
+  receive: Receive
+  pay: Pay
   created: "{{model}} created successfully."
   updated: "{{model}} updated successfully."
   created_at: Date Created
@@ -40,7 +42,16 @@ en:
       title: New Store
     edit:
       title: Edit Store
-      
+    
+  purchase_orders:
+    index:
+      title: Purchase Orders
+      empty: No purchase orders.
+    new:
+      title: New Purchase Order
+    edit:
+      title: Edit Purchase Order      
+
   users:
     index:
       title: Users
@@ -84,6 +95,8 @@ en:
       suppliers: Suppliers
       store: Store
       stores: Stores
+      purchase_order: Purchase Order
+      purchase_orders: Purchase Orders
       user: User
       users: Users
       category: Category
@@ -114,6 +127,14 @@ en:
         city: City
         postal_code: Postal code
         country: Country
+      purchase_order:
+        id: '#'
+        created_at: Created at
+        total: Total
+        user: User
+        received_at: Received at
+        paid_at: Paid at
+        notes: Notes
       user:
         name: Name
         email: Email

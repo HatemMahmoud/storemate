@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101212185632) do
+ActiveRecord::Schema.define(:version => 20101212220436) do
 
   create_table "categories", :force => true do |t|
     t.integer  "company_id"
@@ -47,6 +47,18 @@ ActiveRecord::Schema.define(:version => 20101212185632) do
   add_index "products", ["code"], :name => "index_products_on_code"
   add_index "products", ["name"], :name => "index_products_on_name"
 
+  create_table "purchase_orders", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "supplier_id"
+    t.integer  "store_id"
+    t.decimal  "total",       :default => 0.0
+    t.datetime "received_at"
+    t.datetime "paid_at"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "stores", :force => true do |t|
     t.integer  "company_id"
     t.string   "name"
@@ -60,6 +72,8 @@ ActiveRecord::Schema.define(:version => 20101212185632) do
     t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "users_count",           :default => 0
+    t.integer  "purchase_orders_count", :default => 0
   end
 
   create_table "suppliers", :force => true do |t|
