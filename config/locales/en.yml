@@ -50,6 +50,15 @@ en:
       title: New Category
     edit:
       title: Edit Category
+      
+  products:
+    index:
+      title: Products
+      empty: No products.
+    new:
+      title: New Product
+    edit:
+      title: Edit Product
   
   helpers:
     label:
@@ -68,6 +77,8 @@ en:
       users: Users
       category: Category
       categories: Categories
+      product: Product
+      products: Products
     attributes:
       company:
         name: Name
@@ -88,6 +99,13 @@ en:
       category:
         name: Name
         description: Description
+      product:
+        code: Code
+        name: Name
+        description: Description
+        price: Price
+        average_cost: Average cost
+        quantity: Quantity
         
   errors:
     messages:

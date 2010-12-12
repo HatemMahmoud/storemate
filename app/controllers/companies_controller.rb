@@ -30,7 +30,7 @@ class CompaniesController < ApplicationController
   end
 
   def destroy
-    if @company.stores.size > 0
+    if @company.stores.count > 0
       redirect_to companies_path, :alert => t('companies.cannot_be_deleted')
     else
       @company.destroy

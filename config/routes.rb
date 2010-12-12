@@ -5,7 +5,9 @@ Storemate::Application.routes.draw do
     resources :stores do
       resources :users
     end
-    resources :categories
+    resources :categories do
+      resources :products
+    end
   end
 
   resources :pages, :only => :show

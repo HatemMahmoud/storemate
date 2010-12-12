@@ -36,6 +36,9 @@
           <% if params[:company_id] && can?(:read, Category) %>
             <li><%= link_to t('activerecord.models.categories'), company_categories_path(params[:company_id]), :class => controller_name=='categories' ? 'selected' : '' %></li>
           <% end %>
+          <% if params[:company_id] && params[:category_id] && can?(:read, Product) %>
+            <li><%= link_to t('activerecord.models.products'), company_category_products_path(params[:company_id], params[:category_id]), :class => controller_name=='products' ? 'selected' : '' %></li>
+          <% end %>
           <% if can? :read, User %>
             <li><%= link_to t('activerecord.models.users'), users_path, :class => controller_name=='users' ? 'selected' : '' %></li>
           <% end %>

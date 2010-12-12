@@ -13,7 +13,7 @@
   <table>
     <tr>
       <th><%= t('activerecord.attributes.category.name') %></th>
-      <th><%#= t('activerecord.models.products') %></th>
+      <th><%= t('activerecord.models.products') %></th>
       <th><%= t('activerecord.attributes.category.description') %></th>
       <% if can? :update, Category %>
         <th class="action"><%= t('edit') %></th>
@@ -25,7 +25,7 @@
     <% @categories.each do |category| %>
       <tr class="<%= cycle 'odd', '' %>">
         <td><%= link_to category.name, company_category_path(@company, category) %></td>
-        <td><%#= link_to category.products_count, company_category_products_path(@company, category) %></td>
+        <td><%= link_to category.products_count, company_category_products_path(@company, category) %></td>
         <td><%= category.description %></td>
         <% if can? :update, Category %>
           <td><%= link_to t('edit'), edit_company_category_path(@company, category), :class => 'edit' %></td>

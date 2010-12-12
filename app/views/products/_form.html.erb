@@ -1,0 +1,39 @@
+<%= form_for([@category.company, @category, @product]) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+    <%= f.label :category %>
+    <%= f.select :category_id, @categories.map { |category| [category.name, category.id] }, :include_blank => true %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :code %>
+    <%= f.text_field :code, :class => 'text_field' %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => 'text_field' %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :average_cost %>
+    <%= f.text_field :average_cost, :class => 'text_field' %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :price %>
+    <%= f.text_field :price, :class => 'text_field' %>
+  </fieldset>
+  <fieldset class="actions">
+    <%= f.submit %>
+  </fieldset>
+<% end %>

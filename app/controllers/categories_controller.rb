@@ -31,7 +31,11 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category.destroy
-    redirect_to company_categories_path(@company)
+    if @category.products.count > 0
+      redirect_to company_categories_path(@company), :alert => t('categories.cannot_be_deleted')
+    else
+      @category.destroy
+      redirect_to company_categories_path(@company)
+    end
   end
 end

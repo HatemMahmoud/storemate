@@ -21,12 +21,16 @@
       <th><%= t('activerecord.models.company') %></th>
       <th><%= t('activerecord.models.store') %></th>
       <th><%= t('created_at') %></th>
+      <th class="action">
       <% if can? :update, User %>
-        <th class="action"><%= t('edit') %></th>
+        <%= t('edit') %>
       <% end %>
+      </th>
+      <th class="action">
       <% if can? :destroy, User %>
-        <th class="action"><%= t('delete') %></th>
+        <%= t('delete') %>
       <% end %>
+      </th>
     </tr>
     <% @users.each do |user| %>
       <tr class="<%= cycle 'odd', '' %>">
@@ -40,9 +44,11 @@
           <%= link_to t('edit'), edit_user_path(user), :class => 'edit' %>
         <% end %>
         </td>
-        <% if can? :destroy, User %>
-          <td><%= link_to t('delete'), user, :confirm => "#{t('delete')} '#{user.name}'?", :method => :delete, :class => 'delete' %></td>
+        <td>
+        <% if can? :destroy, user %>
+          <%= link_to t('delete'), user, :confirm => "#{t('delete')} '#{user.name}'?", :method => :delete, :class => 'delete' %>
         <% end %>
+        </td>
       </tr>
     <% end %>
   </table>
