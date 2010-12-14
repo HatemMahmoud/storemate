@@ -9,18 +9,11 @@ class Product < ActiveRecord::Base
   validates :quantity, :numericality => {:greater_than_or_equal_to => 0}
   validate :code_uniqueness_in_company
   
-  def company_id
-    category.company_id
-  end
-  
   def code_uniqueness_in_company
-    unique = true
-    duplicates_count = Product.includes(:category).where(:code => self.code, :categories => {:company_id => self.company_id}).count
-    if self.new_record?
-      unique = false if duplicates_count > 0
-    else
-      unique = false if duplicates_count > 1
+    duplicates = Product.includes(:category).where(:code => code, :categories => {:company_id => category.company_id})
+    if !new_record?
+      duplicates = duplicates.where("products.id <> ?", id)
     end
-    errors.add(:code, :taken) if !unique
+    errors.add(:code, :taken) if duplicates.count > 0
   end
 end

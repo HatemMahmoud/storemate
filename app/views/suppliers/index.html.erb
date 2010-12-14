@@ -26,16 +26,16 @@
     </tr>
     <% @suppliers.each do |supplier| %>
       <tr class="<%= cycle 'odd', '' %>">
-        <td><%= link_to supplier.name, company_supplier_path(@company, supplier) %></td>
+        <td><%= link_to supplier.name, supplier %></td>
         <td><%= supplier.contact_person %></td>
         <td><%= supplier.phone %></td>
         <td><%= supplier.mobile %></td>
         <td><%= supplier.email %></td>
         <% if can? :update, Supplier %>
-          <td><%= link_to t('edit'), edit_company_supplier_path(@company, supplier), :class => 'edit' %></td>
+          <td><%= link_to t('edit'), edit_supplier_path(supplier), :class => 'edit' %></td>
         <% end %>
         <% if can? :destroy, Supplier %>
-          <td><%= link_to t('delete'), company_supplier_path(@company, supplier), :confirm => "#{t('delete')} '#{supplier.name}'?", :method => :delete, :class => 'delete' %></td>
+          <td><%= link_to t('delete'), supplier, :confirm => "#{t('delete')} '#{supplier.name}'?", :method => :delete, :class => 'delete' %></td>
         <% end %>
       </tr>
     <% end %>

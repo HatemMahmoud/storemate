@@ -2,11 +2,7 @@
 <% content_for :actions do %>
   <ul>
     <% if can? :creat, User %>
-      <% if params[:company_id] && params[:store_id] %>
-        <li><%= link_to t('users.new.title'), new_company_store_user_path(params[:company_id], params[:store_id]) %></li>
-      <% else %>
-        <li><%= link_to t('users.new.title'), new_user_path %></li>
-      <% end %>
+      <li><%= link_to t('users.new.title'), new_store_user_path(@store) %></li>
     <% end %>
   </ul>
 <% end %>
@@ -17,9 +13,8 @@
   <table>
     <tr>
       <th><%= t('activerecord.attributes.user.name') %></th>
-      <th><%= t('activerecord.attributes.user.role') %></th>
-      <th><%= t('activerecord.models.company') %></th>
       <th><%= t('activerecord.models.store') %></th>
+      <th><%= t('activerecord.attributes.user.role') %></th>
       <th><%= t('created_at') %></th>
       <th class="action">
       <% if can? :update, User %>
@@ -35,9 +30,8 @@
     <% @users.each do |user| %>
       <tr class="<%= cycle 'odd', '' %>">
         <td><%= link_to user.name, user %></td>
+        <td><%= user.store.name %></td>
         <td><%= user.role.titleize %></td>
-        <td><%= user.store.company.name if user.store %></td>
-        <td><%= user.store.name if user.store %></td>
         <td><%= user.created_at %></td>
         <td>
         <% if can? :update, user %>

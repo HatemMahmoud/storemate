@@ -2,7 +2,7 @@
 <% content_for :actions do %>
   <ul>
     <% if can? :creat, PurchaseOrder %>
-      <li><%= link_to t('purchase_orders.new.title'), new_company_store_purchase_order_path(@store.company, @store) %></li>
+      <li><%= link_to t('purchase_orders.new.title'), new_store_purchase_order_path(@store) %></li>
     <% end %>
   </ul>
 <% end %>
@@ -23,7 +23,7 @@
     </tr>
     <% @purchase_orders.each do |purchase_order| %>
       <tr class="<%= cycle 'odd', '' %>">
-        <td><%= link_to purchase_order.id, company_store_purchase_order_path(@store.company, @store, purchase_order) %></td>
+        <td><%= link_to purchase_order.id, purchase_order %></td>
         <td><%= purchase_order.created_at %></td>
         <td><%= purchase_order.total %></td>
         <td><%= purchase_order.user.name %></td>

@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for([@store, @user]) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -17,12 +17,6 @@
     <fieldset>
       <%= f.label :role %>
       <%= f.collection_select :role, @roles, :to_s, :titleize, :include_blank => true %>
-    </fieldset>
-  <% end %>
-  <% if can? :assign_store, @user %>
-    <fieldset>
-      <%= f.label :store %>
-      <%= f.select :store_id, @stores.map { |store| [store.full_name, store.id] }, :include_blank => true %>
     </fieldset>
   <% end %>
   <fieldset>

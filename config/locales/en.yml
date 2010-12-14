@@ -35,6 +35,7 @@ en:
       title: Edit Supplier
       
   stores:
+    cannot_be_deleted: Store can't be deleted! You must delete all users first.
     index:
       title: Stores
       empty: No stores.

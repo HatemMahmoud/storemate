@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   load_and_authorize_resource :store
   load_and_authorize_resource :user, :through => :store, :shallow => true
-  before_filter :find_roles_and_stores, :only => [:new, :edit, :create, :update]
+  before_filter :find_roles, :only => [:new, :edit, :create, :update]
   
   def index
   end
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   def create
     if @user.save
-      redirect_to users_path, :notice => t('created', :model => 'User')
+      redirect_to store_users_path(@store), :notice => t('created', :model => 'User')
     else
       render :new
     end
@@ -33,13 +33,12 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to users_path
+    redirect_to store_users_path(@user.store_id)
   end
   
   private
   
-  def find_roles_and_stores
+  def find_roles
     @roles = current_user.admin? ? User::ROLES : User::ROLES-['admin']
-    @stores = Store.accessible_by(current_ability).order('name')
   end
 end

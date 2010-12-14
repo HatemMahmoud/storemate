@@ -15,7 +15,7 @@ class PurchaseOrdersController < ApplicationController
   def create
     @purchase_order.user = current_user
     if @purchase_order.save
-      redirect_to company_store_purchase_orders_path(@store.company, @store), :notice => t('created', :model => 'Purchase order')
+      redirect_to store_purchase_orders_path(@store), :notice => t('created', :model => 'Purchase order')
     else
       render :new
     end
@@ -24,6 +24,6 @@ class PurchaseOrdersController < ApplicationController
   private
   
   def find_suppliers
-    @suppliers = Supplier.accessible_by(current_ability).order('name')
+    @suppliers = Supplier.where(:company_id => @store.company_id).order('name')
   end
 end

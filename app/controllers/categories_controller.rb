@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   load_and_authorize_resource :company
-  load_and_authorize_resource :category, :through => :company
+  load_and_authorize_resource :category, :through => :company, :shallow => true
   
   def index
   end
@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
 
   def create
     if @category.save
-      redirect_to company_categories_path(@company), :notice => t('created', :model => 'Category')
+      redirect_to company_categories_path(@category.company_id), :notice => t('created', :model => 'Category')
     else
       render :new
     end
@@ -24,7 +24,7 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update_attributes(params[:category])
-      redirect_to company_categories_path(@company), :notice => t('updated', :model => 'Category')
+      redirect_to company_categories_path(@category.company_id), :notice => t('updated', :model => 'Category')
     else
       render :edit
     end
@@ -32,10 +32,10 @@ class CategoriesController < ApplicationController
 
   def destroy
     if @category.products.count > 0
-      redirect_to company_categories_path(@company), :alert => t('categories.cannot_be_deleted')
+      redirect_to company_categories_path(@category.company_id), :alert => t('categories.cannot_be_deleted')
     else
       @category.destroy
-      redirect_to company_categories_path(@company)
+      redirect_to company_categories_path(@category.company_id)
     end
   end
 end

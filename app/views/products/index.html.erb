@@ -2,7 +2,7 @@
 <% content_for :actions do %>
   <ul>
     <% if can? :creat, Product %>
-      <li><%= link_to t('products.new.title'), new_company_category_product_path(@category.company, @category) %></li>
+      <li><%= link_to t('products.new.title'), new_category_product_path(@category) %></li>
     <% end %>
   </ul>
 <% end %>
@@ -27,15 +27,15 @@
     <% @products.each do |product| %>
       <tr class="<%= cycle 'odd', '' %>">
         <td><%= product.code %></td>
-        <td><%= link_to product.name, company_category_product_path(@category.company, @category, product), :title => product.description %></td>
+        <td><%= link_to product.name, product, :title => product.description %></td>
         <td><%= product.price %></td>
         <td><%= product.average_cost %></td>
         <td><%= product.quantity %></td>
         <% if can? :update, Product %>
-          <td><%= link_to t('edit'), edit_company_category_product_path(@category.company, @category, product), :class => 'edit' %></td>
+          <td><%= link_to t('edit'), edit_product_path(product), :class => 'edit' %></td>
         <% end %>
         <% if can? :destroy, Product %>
-          <td><%= link_to t('delete'), company_category_product_path(@category.company, @category, product), :confirm => "#{t('delete')} '#{product.name}'?", :method => :delete, :class => 'delete' %></td>
+          <td><%= link_to t('delete'), product, :confirm => "#{t('delete')} '#{product.name}'?", :method => :delete, :class => 'delete' %></td>
         <% end %>
       </tr>
     <% end %>

@@ -24,14 +24,14 @@
     </tr>
     <% @categories.each do |category| %>
       <tr class="<%= cycle 'odd', '' %>">
-        <td><%= link_to category.name, company_category_path(@company, category) %></td>
-        <td><%= link_to category.products_count, company_category_products_path(@company, category) %></td>
+        <td><%= link_to category.name, category %></td>
+        <td><%= link_to category.products_count, category_products_path(category) %></td>
         <td><%= category.description %></td>
         <% if can? :update, Category %>
-          <td><%= link_to t('edit'), edit_company_category_path(@company, category), :class => 'edit' %></td>
+          <td><%= link_to t('edit'), edit_category_path(category), :class => 'edit' %></td>
         <% end %>
         <% if can? :destroy, Category %>
-          <td><%= link_to t('delete'), company_category_path(@company, category), :confirm => "#{t('delete')} '#{category.name}'?", :method => :delete, :class => 'delete' %></td>
+          <td><%= link_to t('delete'), category, :confirm => "#{t('delete')} '#{category.name}'?", :method => :delete, :class => 'delete' %></td>
         <% end %>
       </tr>
     <% end %>

@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   before_filter :set_locale, :authenticate_user!
-  
   check_authorization
   
   rescue_from CanCan::AccessDenied do |exception|
@@ -17,11 +16,13 @@ class ApplicationController < ActionController::Base
         when 'admin'
           companies_path
         when 'company_manager'
-          company_stores_path(current_user.company)
+          company_path current_user.store.company_id
         when 'store_manager'
-          company_store_path(current_user.company, current_user.store)
+          store_path current_user.store_id
         when 'cashier'
-          company_store_path(current_user.company, current_user.store)
+          store_path current_user.store_id
+        else
+          super
       end
     else
       super

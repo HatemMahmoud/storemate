@@ -27,26 +27,26 @@
         <% unless user_signed_in? %>
           <li><%= link_to_unless_current(t(:home), root_path) {|name, link| link_to name, link, :class => 'selected' } %></li>
         <% else %>
-          <% if can? :read, Company %>
+          <% if can? :index, Company %>
             <li><%= link_to t('activerecord.models.companies'), companies_path, :class => controller_name=='companies' ? 'selected' : '' %></li>
           <% end %>
-          <% if params[:company_id] && can?(:read, Supplier) %>
-            <li><%= link_to t('activerecord.models.suppliers'), company_suppliers_path(params[:company_id]), :class => controller_name=='suppliers' ? 'selected' : '' %></li>
+          <% if can? :read, Store %>
+            <li><%= link_to t('activerecord.models.stores'), company_stores_path(current_user.company_id), :class => controller_name=='stores' ? 'selected' : '' %></li>
           <% end %>
-          <% if params[:company_id] && can?(:read, Store) %>
-            <li><%= link_to t('activerecord.models.stores'), company_stores_path(params[:company_id]), :class => controller_name=='stores' ? 'selected' : '' %></li>
+          <% if can? :read, Category %>
+            <li><%= link_to t('activerecord.models.categories'), company_categories_path(current_user.company_id), :class => controller_name=='categories' ? 'selected' : '' %></li>
           <% end %>
-          <% if params[:company_id] && params[:store_id] && can?(:read, PurchaseOrder) %>
-            <li><%= link_to t('activerecord.models.purchase_orders'), company_store_purchase_orders_path(params[:company_id], params[:store_id]), :class => controller_name=='purchase_orders' ? 'selected' : '' %></li>
+          <% if params[:category_id] && can?(:read, Product) %>
+            <li><%= link_to t('activerecord.models.products'), category_products_path(params[:category_id]), :class => controller_name=='products' ? 'selected' : '' %></li>
           <% end %>
-          <% if params[:company_id] && can?(:read, Category) %>
-            <li><%= link_to t('activerecord.models.categories'), company_categories_path(params[:company_id]), :class => controller_name=='categories' ? 'selected' : '' %></li>
+          <% if can? :read, PurchaseOrder %>
+            <li><%= link_to t('activerecord.models.purchase_orders'), store_purchase_orders_path(current_user.store_id), :class => controller_name=='purchase_orders' ? 'selected' : '' %></li>
           <% end %>
-          <% if params[:company_id] && params[:category_id] && can?(:read, Product) %>
-            <li><%= link_to t('activerecord.models.products'), company_category_products_path(params[:company_id], params[:category_id]), :class => controller_name=='products' ? 'selected' : '' %></li>
+          <% if can? :read, Supplier %>
+            <li><%= link_to t('activerecord.models.suppliers'), company_suppliers_path(current_user.company_id), :class => controller_name=='suppliers' ? 'selected' : '' %></li>
           <% end %>
           <% if can? :read, User %>
-            <li><%= link_to t('activerecord.models.users'), users_path, :class => controller_name=='users' ? 'selected' : '' %></li>
+            <li><%= link_to t('activerecord.models.users'), store_users_path(current_user.store_id), :class => controller_name=='users' ? 'selected' : '' %></li>
           <% end %>
         <% end %>
       </ul>
