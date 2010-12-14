@@ -11,9 +11,9 @@ class Ability
         can :manage, Store, :company_id => user.company_id
         can :manage, Supplier, :company_id => user.company_id
         can :manage, PurchaseOrder, :store => {:company_id => user.company_id}
-        can [:read, :update], User, :store => {:company_id => user.company_id}
+        can :manage, User, :store => {:company_id => user.company_id}
         can [:assign_store, :assign_role], User
-        cannot :assign_role, User, :id => user.id
+        cannot [:destroy, :assign_role], User, :id => user.id
         can :manage, Category, :company_id => user.company_id
         can :manage, Product, :category => {:company_id => user.company_id}
       when 'store_manager'
@@ -21,8 +21,8 @@ class Ability
         can :read, Supplier, :company_id => user.company_id
         can :read, Store, :id => user.store_id
         can :manage, PurchaseOrder, :store_id => user.store_id
-        can :update, User, :id => user.id
         can :read, User, :store_id => user.store_id
+        can :update, User, :id => user.id
         can :read, Category, :company_id => user.company_id
         can :read, Product, :category => {:company_id => user.company_id}
       when 'cashier'

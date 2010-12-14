@@ -13,7 +13,9 @@ StoreMate is the easiest point of sale system.
 - product show doesn't display "Products" menu
 - products index should display category name
 - purchase orders index should display store name
+- forgot password doesn't work
 
 ## TO DO
 
+- adjust menus (ex: company manager shouldn't view companies index, etc.)
 - http://railscasts.com/episodes/240-search-sort-paginate-with-ajax
