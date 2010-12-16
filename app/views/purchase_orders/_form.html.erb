@@ -9,15 +9,25 @@
       </ul>
     </div>
   <% end %>
+  <h2><%= t('activerecord.models.supplier') %></h2>
   <fieldset>
-    <%= f.label :supplier %>
     <%= f.select :supplier_id, @suppliers.map { |supplier| [supplier.name, supplier.id] }, :include_blank => true %>
   </fieldset>
+  <h2><%= t('activerecord.models.purchase_order_items') %></h2>
+  <table>
+    <tr>
+      <th><%= t('activerecord.models.product') %></th>
+      <th><%= t('activerecord.attributes.purchase_order_item.cost') %></th>
+      <th><%= t('activerecord.attributes.purchase_order_item.quantity') %></th>
+      <th><%= t('activerecord.attributes.purchase_order_item.total') %></th>
+    </tr>
+    <%= render 'purchase_order_item_fields', :form => f %>
+  </table>
+  <h2><%= t('activerecord.attributes.purchase_order.notes') %></h2>
   <fieldset>
-    <%= f.label :notes %>
     <%= f.text_area :notes %>
   </fieldset>
-    <fieldset class="actions">
+  <fieldset class="actions">
     <%= f.submit %>
   </fieldset>
 <% end %>

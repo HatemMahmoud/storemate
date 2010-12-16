@@ -1,0 +1,8 @@
+<%= form.fields_for :purchase_order_items do |f| %>
+  <tr class="<%= cycle 'odd', '' %>">
+    <td><%= f.text_field :product_id, :class => 'text_field_small' %></td>
+    <td><%= f.text_field :cost, :class => 'text_field_small' %></td>
+    <td><%= f.text_field :quantity, :class => 'text_field_small' %></td>
+    <td><%= f.text_field :total, :class => 'text_field_small' %></td>
+  </tr>
+<% end %>

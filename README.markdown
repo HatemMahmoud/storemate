@@ -17,5 +17,7 @@ StoreMate is the easiest point of sale system.
 
 ## TO DO
 
+- validate email
+- supplier has_many :purchase_orders
 - adjust menus (ex: company manager shouldn't view companies index, etc.)
 - http://railscasts.com/episodes/240-search-sort-paginate-with-ajax

@@ -15,7 +15,8 @@
       <th><%= t('activerecord.attributes.user.name') %></th>
       <th><%= t('activerecord.models.store') %></th>
       <th><%= t('activerecord.attributes.user.role') %></th>
-      <th><%= t('created_at') %></th>
+      <th><%= t('activerecord.attributes.user.created_at') %></th>
+      <th><%= t('activerecord.attributes.user.last_sign_in_at') %></th>
       <th class="action">
       <% if can? :update, User %>
         <%= t('edit') %>
@@ -32,7 +33,8 @@
         <td><%= link_to user.name, user %></td>
         <td><%= user.store.name %></td>
         <td><%= user.role.titleize %></td>
-        <td><%= user.created_at %></td>
+        <td><%= l user.created_at %></td>
+        <td><%= l user.last_sign_in_at %></td>
         <td>
         <% if can? :update, user %>
           <%= link_to t('edit'), edit_user_path(user), :class => 'edit' %>

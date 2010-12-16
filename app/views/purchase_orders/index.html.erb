@@ -15,7 +15,6 @@
       <th><%= t('activerecord.attributes.purchase_order.id') %></th>
       <th><%= t('activerecord.attributes.purchase_order.created_at') %></th>
       <th><%= t('activerecord.attributes.purchase_order.total') %></th>
-      <th><%= t('activerecord.attributes.purchase_order.user') %></th>
       <th><%= t('activerecord.attributes.purchase_order.received_at') %></th>
       <th><%= t('activerecord.attributes.purchase_order.paid_at') %></th>
       <th class="action"><%= t('receive') %></th>
@@ -24,13 +23,12 @@
     <% @purchase_orders.each do |purchase_order| %>
       <tr class="<%= cycle 'odd', '' %>">
         <td><%= link_to purchase_order.id, purchase_order %></td>
-        <td><%= purchase_order.created_at %></td>
+        <td><%= l purchase_order.created_at %></td>
         <td><%= purchase_order.total %></td>
-        <td><%= purchase_order.user.name %></td>
         <td><%= purchase_order.received_at %></td>
         <td><%= purchase_order.paid_at %></td>
-        <td><%#= link_to t('receive'), receive_store_purchase_order_path(@store, purchase_order), :method => :put, :class => 'receive' %></td>
-        <td><%#= link_to t('pay'), pay_store_purchase_order_path(@store, purchase_order), :method => :put, :class => 'pay' %></td>
+        <td class="action"><%#= link_to t('receive'), receive_store_purchase_order_path(@store, purchase_order), :method => :put, :class => 'receive' %></td>
+        <td class="action"><%#= link_to t('pay'), pay_store_purchase_order_path(@store, purchase_order), :method => :put, :class => 'pay' %></td>
       </tr>
     <% end %>
   </table>

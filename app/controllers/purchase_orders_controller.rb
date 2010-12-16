@@ -10,12 +10,13 @@ class PurchaseOrdersController < ApplicationController
   end
 
   def new
+    3.times {@purchase_order.purchase_order_items.build}
   end
 
   def create
     @purchase_order.user = current_user
     if @purchase_order.save
-      redirect_to store_purchase_orders_path(@store), :notice => t('created', :model => 'Purchase order')
+      redirect_to @purchase_order, :notice => t('created', :model => 'Purchase order')
     else
       render :new
     end

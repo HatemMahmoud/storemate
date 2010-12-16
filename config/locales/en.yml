@@ -13,7 +13,6 @@ en:
   pay: Pay
   created: "{{model}} created successfully."
   updated: "{{model}} updated successfully."
-  created_at: Date Created
   
   companies:
     cannot_be_deleted: Company can't be deleted! You must delete all stores first.
@@ -98,6 +97,8 @@ en:
       stores: Stores
       purchase_order: Purchase Order
       purchase_orders: Purchase Orders
+      purchase_order_item: Purchase Order Item
+      purchase_order_items: Purchase Order Items
       user: User
       users: Users
       category: Category
@@ -107,6 +108,7 @@ en:
     attributes:
       company:
         name: Name
+        created_at: Created at
       supplier:
         name: Name
         contact_person: Contact person
@@ -132,14 +134,19 @@ en:
         id: '#'
         created_at: Created at
         total: Total
-        user: User
         received_at: Received at
         paid_at: Paid at
         notes: Notes
+      purchase_order_item:
+        cost: Cost
+        quantity: Quantity
+        total: Total
       user:
         name: Name
         email: Email
         role: Role
+        created_at: Created at
+        last_sign_in_at: Last sign in at
       category:
         name: Name
         description: Description
@@ -151,7 +158,11 @@ en:
         average_cost: Average cost
         quantity: Quantity
         
-  errors:
-    messages:
-      taken: 'has already been taken'
-      too_short: "is too short (minimum is {{count}} characters)"
+    errors:
+      messages:
+        blank: "can't be blank"
+        taken: has already been taken
+
+  time:
+    formats:
+      default: "%a, %b %d, %Y - %H:%M"

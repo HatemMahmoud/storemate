@@ -211,9 +211,18 @@ th{
 th.action{
   width:5%;
 }
+th.side{
+  width:15%;
+}
+th.numeric{
+  text-align:right;
+}
 td{
   border-bottom:1px solid #EEE;
   padding:5px;
+}
+td.numeric{
+  text-align:right;
 }
 /***** Forms *****/
 form {
@@ -262,7 +271,13 @@ label{
 .text_field, textarea{
   width: 540px;
 }
+.text_field_small{
+  width: 200px;
+}
 select{
+  width: 552px;
+}
+select_small{
   width: 552px;
 }
 textarea{
