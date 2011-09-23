@@ -21,3 +21,4 @@ StoreMate is the easiest point of sale system.
 - supplier has_many :purchase_orders
 - adjust menus (ex: company manager shouldn't view companies index, etc.)
 - http://railscasts.com/episodes/240-search-sort-paginate-with-ajax
+- rake setup: All our apps has a rake setup task that’ll run bundler, create the databases, import seeds, and install any auxiliary software (little these days) or do any other setup.
