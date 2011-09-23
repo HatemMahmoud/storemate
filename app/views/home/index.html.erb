@@ -1,0 +1,24 @@
+<h1>Welcome</h1>
+
+<p>Welcome to Store Mate, the powerful and easy solution to manage your store.</p>
+
+<ul class="bulletless">
+	<% if first_run? %>
+		<li class="warning">
+			<%= link_to 'Start by creating an admin account', new_user_path %>
+		</li>
+	<% elsif admin? %>
+		<li class=<%=mystore.name=='Store Name'?'warning':'success' %>>
+			<%= link_to 'Store setup', edit_store_path %>
+		</li>
+		<li class=<%=TaxRate.count==0?'warning':'success' %>>
+			<%= link_to 'Define taxes', new_tax_rate_path %>
+		</li>
+		<li class=<%=Category.count==0?'warning':'success' %>>
+			<%= link_to 'Create categories for products', new_category_path %>
+		</li>
+		<li class=<%=Product.count==0?'warning':'success' %>>
+			<%= link_to 'Create products', new_product_path %>
+		</li>
+	<% end %>
+</ul>

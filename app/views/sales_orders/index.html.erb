@@ -1,0 +1,21 @@
+<h1>Sales orders</h1>
+
+<table>
+  <tr>
+    <th>Paid</th>
+    <th>ID</th>
+    <th>Date</th>
+    <th>Customer</th>
+    <th>User</th>
+  </tr>
+
+<% for sales_order in @sales_orders %>
+  <tr>
+    <td align="center"><%= image_tag('money.png', :alt => 'Paid', :title => 'Paid') if sales_order.paid %></td>
+    <td align="right"><%= link_to sales_order.id, sales_order %></td>
+    <td><%= nice_datetime sales_order.created_at %></td>
+    <td><%= sales_order.customer.blank? ? '-' : link_to(h(sales_order.customer.name), sales_order.customer) %></td>
+    <td><%= h sales_order.user.login %></td>
+  </tr>
+<% end %>
+</table>

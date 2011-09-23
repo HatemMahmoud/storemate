@@ -1,0 +1,165 @@
+Use this README file to introduce your application and point to useful places in the API for learning more.
+Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+
+Must
+====
+- product catalog with images
+- auto complete name of product, customer, supplier
+- roles: admin, manager, cashier
+- ssl
+- Automatic logout
+- find returns by receipt number or date
+- refund all or some of items with reason (damaged, wrong size, etc.)
+- reports: branches, products, categories, suppliers, customers, employees, days, months, years
+- multiple editions: number of users, branches, products
+- track purchases with different costs
+- track sales with different prices 
+- display stock when purchasing or selling
+- default view is today's orders
+- calculate change when paying
+- purchasing:
+  1- place purchase order: order number, reference number, supplier, date required
+  2- receive products
+  3- update inventory
+- display status of purchase/sales orders
+- sorters for all tables
+- inventory adjustments (in/out):
+  - change item quantity with a reason: damaged, stolen, etc.
+  - change item price with a reason: discount, etc.
+
+Nice
+====
+- backup store data
+- reset store data
+- setup wizard
+- reports: compare branches, products, employees, months, day hours, etc.
+  - best selling items, most productive employees, details by department, supplier,
+  - most returned items, return reasons
+- reorder level reminder
+- costs, salaraies, etc.
+- work offline: 
+	- http://fluidapp.com/
+	- http://prism.mozillalabs.com/
+- quick search: http://www.marcofolio.net/webdesign/a_fancy_apple.com-style_search_suggestion.html
+- export reports to csv for your accountant
+- import products form csv
+- import customers from address book
+- email a customer
+- payment method: cash, credit card, 
+- add notes to orders (call customer, customer called, etc.) and track notes
+- gift cards
+- special offers
+- bug button and on-screen keyboard for touch screens
+- email purchase orders to supplier
+- track back orders with deposite percentage and inform the customer when the product is available
+- transfer items between inventory locations with a reason (ex: damaged items)
+- default supplier
+- use tags to filter items
+- return to supplier or customer
+
+Muhammad Notes:
+==============
+- pay purchase orders in installments
+- report on due payments ordered by supplier
+- display sum of cost and price of all products
+- day/month/year total sales of each categories
+- return
+
+
+Issues:
+=======
+- use keyboard shortcuts for all functions (check merchantos.com)
+- If a required combo box value not selected, IE doesn't display a red border!
+- reset button for all forms
+- client side validation for all forms
+- convert all icons to gif
+- attachment_fu: logo, category pic, product pic
+- will_paginate for orders, products, customers, categories, etc.
+- use ajax for "add category" and "add unit type" link in _product form. same for add customer, supplier, etc.
+- order of validation error messages doesn't match that of form fields
+- track product damages (should decrease stock)
+- customer can get refund (should increase stock if no damage)
+- workshop jobs (a3mal alwarsha)
+- start app automatically when Windows starts
+- create installation wizard to create the db
+- Create a rake task to add sample data for a sample store
+- support Arabic
+- reformat all forms to include label and field in the same line
+- remove underscroes from page headers and column headers using titleize()
+- test in IE6, Opera and Safari
+- font size should be relative to be resizable in IE
+- user/edit shouldn't show password
+- change_password should be in a separate form
+- statistics and charts
+- a sales order should have paid? method
+- a purchase order should have received? and paid? methods
+- When adding a new order, provide a button to cancel the tax on an item and a button to cancel all taxes 
+- When adding a new order, allow a discount
+- When adding a new order, use buttons to 'add' and 'remove' line items
+- When adding a new order, provide options to select products by: product name autocomplete, categories combo box, drag-n-drop
+- When adding a new order, if you enter quantity 0.002, it's converted to 0 and still have a price!
+- When adding a new order, taxes and total price are cleared with validation errors
+- When adding a new order, use subtotal, discount, tax and total
+- while /show, use a sliding effect to show the top spinner
+- while /show, add an option to print the order
+- Print a receipt after sales order payment
+- add a method on the product model to always get the products ordered asc. Same for users, suppliers, customers, unit types, etc.
+- handle deleting a category, customer, supplier, user
+- don't delete a parent that has children
+- customize the home page for daily usage
+- show all products that are below their reorder level
+- filter sales orders by customer, user, date, paid?
+- filter purchase orders by supplier, user, date, received?, paid?
+- important icon links should be replaced with icon buttons
+- product stock should not be manually editable
+- a new form to add product stock
+- a new page to view product stock history (supplier, purchase order id, etc.)
+- a new page to view product history (stock adds, sales, purchases, avg. cost, avg. price, current stock, etc.)
+- sales order should update stock after it is paid not after_save of a line item
+- sidebar of product/show should provide links to: inventory, customers, sales, Avg. Cost, graphs, etc.
+- store dates of delivered, ordered, received, paid, etc. and show them in a history page
+- sales/purchase orders index should show total of each
+- sales/purchase orders index should show orders that are below their reorder level
+- when paying, raise exception if stock is not enough
+- ensure everything works without javascript (when creating a new order, javascript removes empty records before submission. user should be able to add/remove line items so everything works without javascript)
+- send alerts by email or SMS
+- mobile view
+
+- When adding a purchase order, you may need to add all products that are below their reorder level
+- multiple calendars: hijri, georgian, etc.
+- date and time format settings
+- tax systems: sales tax or value added tax
+- help 
+- Barcode printing and scanning
+- accept credit card payments
+
+Features
+========
+- easy to learn and use
+- no software or hardware to install
+- work anytime, anywhere
+- data not lost if computer is damaged
+- product gallery
+- multiple languages, currencies
+- multiple tax rates
+- multiple payment methods
+- unlimited stores and branches
+- unlimited users with different roles
+- remote support
+- return to supplier or customer
+- back order
+- reports and charts
+
+Plans
+=====
+- 1 store, 1 user
+  - price: 1000 EGP
+  
+- 1 store, unlimited users
+  - price: 2000 EGP
+
+- unlimited stores, unlimited users
+  - price: 4000 EGP
+
+- All plans come with:
+  - free email support

@@ -1,0 +1,23 @@
+<h1>Listing suppliers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Contact name</th>
+    <th>Phone</th>
+    <th>Mobile</th>
+  </tr>
+
+<% for supplier in @suppliers %>
+  <tr>
+    <td>
+    	<%= link_to_if admin?, image_tag('edit.png', :alt => 'Edit', :title => 'Edit'), edit_supplier_path(supplier) do '' end %>
+		<%= link_to_if admin?, image_tag('delete.png', :alt => 'Delete', :title => 'Delete'), supplier, :confirm => 'Are you sure?', :method => :delete do '' end %>
+    	<%= link_to h(supplier.name), supplier %>
+	</td>
+    <td><%=h supplier.contact_name %></td>
+    <td><%=h supplier.phone %></td>
+    <td><%=h supplier.mobile %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,49 @@
+<h1>Store Setup</h1>
+
+<% form_for(@store, :url => store_path) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :slogan %><br />
+    <%= f.text_field :slogan %>
+  </p>
+  <p>
+    <%= f.label :currency_symbol %><br />
+    <%= f.text_field :currency_symbol %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :website %><br />
+    <%= f.text_field :website %>
+  </p>
+  <p>
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </p>
+  <p>
+    <%= f.label :mobile %><br />
+    <%= f.text_field :mobile %>
+  </p>
+  <p>
+    <%= f.label :fax %><br />
+    <%= f.text_field :fax %>
+  </p>
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :policy_statement %><br />
+    <%= f.text_area :policy_statement %>
+  </p>
+  <p>
+    <%= f.submit "Save" %>
+  </p>
+<% end %>

@@ -1,0 +1,284 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color: #333333;
+	background-color: #FDFDF7;
+}
+h1, h2, h3, h4 {
+	font-family: "Trebuchet MS";
+}
+h1 {
+	font-size: 22px;
+	color: #D76E08;
+	border-bottom: 1px dotted #999;
+	padding: 0 0 10px;
+	margin-top: 0;
+}
+p{
+	line-height: 19px;
+}
+li{
+	line-height: 17px;
+}
+table {
+	width:100%;
+	border-top:1px solid #ccc;
+	border-right:1px solid #ccc;
+	border-collapse:collapse;
+}
+th {
+	background-color:#eee;
+}
+th, td {
+	border-bottom:1px solid #ccc;
+	border-left:1px solid #ccc;
+	padding: 5px;
+}
+
+/***** Layout *****/
+#welcome {
+	float: right;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+#welcome li {
+	float:left;
+	margin: 0 0 0 20px;
+}
+#welcome a:hover, #welcome .active {
+	color: #3C8BAA;
+	background-color: #FDFDF7;
+}
+#header {
+	height: 85px;
+	background: url(/images/header_bg.gif) repeat-x;
+	padding: 20px 10px 0;
+	margin: 0 0 20px;
+	color: #FFFFFF;
+}
+#header a {
+	color: #FFFFFF;
+}
+#header h1 {
+	font-size: 35px;
+	border: none;
+	padding: 0;
+	margin: 0pt 0pt 15px;
+}
+#today{
+	float: left;	
+}
+#menu{
+	float: right;	
+}
+#menu ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	text-align: center;
+	overflow: auto;
+}
+#menu li {
+	float:left;
+}
+#menu a{
+	padding: 5px 10px;
+	margin: 0 1px;
+	background-color: #3C8BAA;
+	display:block;
+}
+#menu a:hover, #menu .active {
+	color: #3C8BAA;
+	background-color: #FDFDF7;
+}
+#container{
+	width: 980px;
+	margin: 0 auto;
+}
+#content{
+	float:left;
+	width:720px;
+}
+#sidebar{
+	float:right;
+	width:220px;
+	padding:0 10px;
+	border:1px dotted #999999;
+}
+#footer{
+	border-top: 1px dotted #999999;
+	font-size: 10px;
+	margin: 15px 0pt 0pt;
+}
+#footer p{
+	margin: 5px 0;
+}
+
+.add {
+	background: url(/images/add.png) no-repeat left center;
+	padding: 0 0 0 20px;
+	font-weight: bold;
+}
+
+/***** Links *****/
+a {
+	color: #3C8BAA;
+	text-decoration: none;
+	padding: 1px 2px;
+	outline-style: none;
+}
+a:hover {
+	color: #FFFFFF;
+	background-color: #439CBD;
+}
+a img{
+	border: none;
+	vertical-align: middle;
+}
+
+/***** Lists *****/
+ul.bulletless{
+	list-style-type: none;	
+}
+li a{	
+	font-weight: bold;
+}
+li.success{
+	background: url(/images/success.png) no-repeat left top;
+	padding: 0px 0pt 7px 23px;
+}
+li.warning{
+	background: url(/images/warning.png) no-repeat left top;
+	padding: 0px 0pt 7px 23px;
+}
+li.user{
+	background: url(/images/user.png) no-repeat left top;
+	padding: 0px 0pt 7px 19px;
+}
+li.key{
+	background: url(/images/key.png) no-repeat left top;
+	padding: 0px 0pt 7px 19px;
+}
+li.help{
+	background: url(/images/help.png) no-repeat left top;
+	padding: 0px 0pt 7px 19px;
+}
+
+/***** Forms *****/
+form {
+	margin: 0px;
+	padding: 0px;
+}
+input, select{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+}
+input.small {
+	width: 166px;
+}
+#new_sales_order input.small {
+	width: 120px;
+}
+select.small {
+	width: 160px;
+}
+.readonly{
+	color: #999999;
+}
+/***** Flashes *****/
+#notice, #error, #note{
+	font-weight: bold;
+	padding: 10px;
+	margin: 0 0 15px;
+}
+#notice{
+	color: #57861A;
+	background-color: #F6FFF6;
+	border: 2px solid #99CC99;
+}
+#error{
+	color: #CC0000;
+	background-color: #FFEBEB;
+	border: 2px solid #E88C8C;
+}
+#note{
+	color: #A47E00;
+	background-color: #FFFFEA;
+	border: 2px solid #FBE288;
+}
+
+/***** Scaffold Errors *****/
+.fieldWithErrors input, .fieldWithErrors textarea, .fieldWithErrors select{
+  border: 1px solid #CC0000;
+}
+
+#errorExplanation {
+	background-color:#FFEBEB;
+	border: 2px solid #E88C8C;
+	padding: 0pt 15px;
+}
+
+#errorExplanation h2 {
+	color: #CC0000;
+	font-size: 16px;
+}
+
+#errorExplanation p {
+}
+
+#errorExplanation ul li {
+  list-style: square;
+}
+
+div.uploadStatus {
+  margin: 5px;
+}
+
+div.progressBar {
+  margin: 5px;
+}
+
+div.progressBar div.border {
+  background-color: #fff;
+  border: 1px solid gray;
+  width: 100%;
+}
+
+div.progressBar div.background {
+  background-color: #333;
+  height: 18px;
+  width: 0%;
+}
+
+.formError{
+	color:#CC0000;
+}
+
+/***** Float *****/
+.float_right {
+	float: right;
+}
+.float_left {
+	float: left;
+}
+.clear_both {
+	clear:both;
+	font-size:1px;
+	height:0px;
+	line-height:0px;
+}
+.clear_right {
+	clear:right;
+	font-size:1px;
+	height:0px;
+	line-height:0px;
+}
+.clear_left {
+	clear:left;
+	font-size:1px;
+	height:0px;
+	line-height:0px;
+}

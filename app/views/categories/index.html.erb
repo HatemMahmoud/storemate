@@ -1,0 +1,19 @@
+<h1>Listing categories</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+
+<% for category in @categories %>
+  <tr>
+    <td>
+		<%= link_to_if admin?, image_tag('edit.png', :alt => 'Edit', :title => 'Edit'), edit_category_path(category) do '' end %>
+		<%= link_to_if admin?, image_tag('delete.png', :alt => 'Delete', :title => 'Delete'), category, :confirm => 'Are you sure?', :method => :delete do '' end %>
+		<%= link_to "#{category.name} (#{pluralize(category.products_count, 'product')})", category %>
+	</td>
+    <td><%=h category.description %></td>
+  </tr>
+<% end %>
+</table>

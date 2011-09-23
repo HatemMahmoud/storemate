@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  code: MyString
+  unit_type: 
+  category: 
+  unit_cost: 9.99
+  unit_price: 9.99
+  units_minimum: 9.99
+  units_in_stock: 9.99
+  units_on_order: 9.99
+
+two:
+  name: MyString
+  code: MyString
+  unit_type: 
+  category: 
+  unit_cost: 9.99
+  unit_price: 9.99
+  units_minimum: 9.99
+  units_in_stock: 9.99
+  units_on_order: 9.99

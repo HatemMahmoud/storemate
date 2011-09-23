@@ -1,0 +1,23 @@
+<h1>Listing customers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Company</th>
+    <th>Phone</th>
+    <th>Mobile</th>
+  </tr>
+
+<% for customer in @customers %>
+  <tr>
+    <td>
+    	<%= link_to_if admin?, image_tag('edit.png', :alt => 'Edit', :title => 'Edit'), edit_customer_path(customer) do '' end %>
+		<%= link_to_if admin?, image_tag('delete.png', :alt => 'Delete', :title => 'Delete'), customer, :confirm => 'Are you sure?', :method => :delete do '' end %>
+    	<%= link_to h(customer.name), customer %>
+	</td>
+    <td><%=h customer.company %></td>
+    <td><%=h customer.phone %></td>
+    <td><%=h customer.mobile %></td>
+  </tr>
+<% end %>
+</table>

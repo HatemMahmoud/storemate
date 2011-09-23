@@ -1,0 +1,52 @@
+<% form_for(@product) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </p>
+  <p>
+    <%= f.label :category %> (<%= link_to 'Add', new_category_path %>)<br />
+    <%= f.collection_select :category_id, Category.find(:all), :id, :name, :include_blank => true %>
+  </p>
+  <p>
+    <%= f.label :unit_type %> (<%= link_to 'Add', new_unit_type_path %>)<br />
+    <%= f.collection_select :unit_type_id, UnitType.find(:all), :id, :name, :include_blank => true %>
+  </p>
+  <p>
+    Taxes (<%= link_to 'Add', new_tax_rate_path %>)<br />
+    <% for tax_rate in TaxRate.find(:all) do %>
+		<div>
+			<%= check_box_tag "product[tax_rate_ids][]", tax_rate.id, @product.tax_rates.include?(tax_rate) %>
+			<%= tax_rate.name + " (#{tax_rate.percentage.to_s}%)" %>
+		</div>
+	<% end %>
+  </p>
+  <p>
+    <%= f.label :unit_cost %> (<%= mystore.currency_symbol %>)<br />
+    <%= f.text_field :unit_cost %>
+  </p>
+  <p>
+    <%= f.label :unit_price %> (<%= mystore.currency_symbol %>)<br />
+    <%= f.text_field :unit_price %>
+  </p>
+  <p>
+    <%= f.label :units_minimum %><br />
+    <%= f.text_field :units_minimum %>
+  </p>
+  <p>
+    <%= f.label :units_in_stock %><br />
+    <%= f.text_field :units_in_stock %>
+  </p>
+  <p>
+    <%= f.label :units_on_order %><br />
+    <%= f.text_field :units_on_order %>
+  </p>
+  <p>
+    <%= f.submit "Save" %>
+  </p>
+<% end %>

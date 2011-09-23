@@ -1,0 +1,17 @@
+<h1>Listing unit types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% for unit_type in @unit_types %>
+  <tr>
+    <td>
+    	<%= link_to_if admin?, image_tag('edit.png', :alt => 'Edit', :title => 'Edit'), edit_unit_type_path(unit_type) %>
+	    <%= link_to_if admin?, image_tag('delete.png', :alt => 'Delete', :title => 'Delete'), unit_type, :confirm => 'Are you sure?', :method => :delete %>
+    	<%=h unit_type.name %>
+	</td>	
+  </tr>
+<% end %>
+</table>

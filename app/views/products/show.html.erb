@@ -1,0 +1,54 @@
+<h1>Product: <%=h @product.name %></h1>
+
+<p>
+  <b>Code:</b>
+  <%=h @product.code %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h @product.category.name %>
+</p>
+
+<p>
+  <b>Unit type:</b>
+  <%=h @product.unit_type.name %>
+</p>
+
+<p>
+  <b>Unit cost:</b>
+  <%= currency(@product.unit_cost) %>
+</p>
+
+<p>
+  <b>Unit price:</b>
+  <%= currency(@product.unit_price) %>
+</p>
+
+<p>
+  <b>Taxes:</b>
+  <% if @product.tax_rates.empty? %>
+  	None.
+  <% else %>
+  	<ul>
+	  <% for tax_rate in @product.tax_rates do %>
+	  	<li><%= tax_rate.name + " (#{tax_rate.percentage.to_s}%)" %></li>
+	  <% end %>
+	</ul>
+  <% end %>
+</p>
+
+<p>
+  <b>Units minimum:</b>
+  <%=h @product.units_minimum %>
+</p>
+
+<p>
+  <b>Units in stock:</b>
+  <%=h @product.units_in_stock %>
+</p>
+
+<p>
+  <b>Units on order:</b>
+  <%=h @product.units_on_order %>
+</p>

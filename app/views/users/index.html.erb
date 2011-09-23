@@ -1,0 +1,21 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>Login</th>
+    <th>Enabled</th>
+    <th>Is Admin</th>
+  </tr>
+
+<% for user in @users %>
+  <tr>
+    <td>
+    	<%= link_to image_tag('edit.png', :alt => 'Edit', :title => 'Edit'), edit_user_path(user) %>
+		<%= link_to image_tag('delete.png', :alt => 'Delete', :title => 'Delete'), user, :confirm => 'Are you sure?', :method => :delete %>
+    	<%=h user.login %>
+	</td>
+    <td><%=h user.enabled %></td>
+    <td><%=h user.is_admin %></td>
+  </tr>
+<% end %>
+</table>

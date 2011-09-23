@@ -1,0 +1,65 @@
+<% case params[:controller]
+	when 'categories' %>
+		<p>Categories are groups of your products. You can create any number of categories to organize your store.</p>
+		<% if admin? %>
+			<p class="add"><%= link_to 'New Category', new_category_path %></p>
+		<% end %>
+		
+	<% when 'products' %>
+		<p>Define all the products you buy form suppliers, add to stock and sell everyday.</p>
+		<% if admin? %>
+			<p class="add"><%= link_to 'New Product', new_product_path %></p>
+		<% end %>
+		
+	<% when 'store' %>
+		<ul>
+			<li><%= link_to 'Users', users_path %></li>
+			<li><%= link_to 'Tax rates', tax_rates_path %></li>
+			<li><%= link_to 'Unit types', unit_types_path %></li>
+		</ul>
+		
+	<% when 'customers' %>
+		<p>Define your important customers so you can select one when creating an order.</p>
+		<% if admin? %>
+			<p class="add"><%= link_to 'New Customer', new_customer_path %></p>
+		<% end %>
+		
+	<% when 'suppliers' %>
+		<p>Define your suppliers so you can add stock and manage purchase orders.</p>
+		<% if admin? %>
+			<p class="add"><%= link_to 'New Supplier', new_supplier_path %></p>
+		<% end %>
+		
+	<% when 'sales_orders' %>
+		<p>Sales orders with customers.</p>
+		<p class="add"><%= link_to 'New Sales Order', new_sales_order_path %></p>
+		
+	<% when 'purchase_orders' %>
+		<p>Purchase orders with suppliers.</p>
+		<p class="add"><%= link_to 'New Purchase Order', new_purchase_order_path %></p>
+		
+	<% when 'tax_rates' %>
+		<p>Define the taxes that may apply to your products. Examples are: sales taxes, city taxes, etc.</p>
+		<p class="add"><%= link_to 'New Tax Rate', new_tax_rate_path %></p>
+		
+	<% when 'unit_types' %>
+		<p>Define unit types for your products. Examples are: piece, gram, box, etc.</p>
+		<p class="add"><%= link_to 'New Unit Type', new_unit_type_path %></p>
+		
+	<% when 'session' %>
+		<p>You must login to start managing your store. If you can't login with your account, please contact your administrator.</p>
+		
+	<% when 'users' %>
+		<% if !first_run? and admin? %>
+			<p class="add"><%= link_to 'New User', new_user_path %></p>
+		<% else %>
+			<p>For information on how to use Store Mate to manage your store, check the <%= link_to 'help section', help_path %>.</p>
+		<% end %>
+		
+	<% when 'help' %>
+		<p>Here you can find information on how to use Store Mate to manage you store.</p>
+		
+	<% else %>
+		<p>For information on how to use Store Mate to manage your store, check the <%= link_to 'help section', help_path %>.</p>
+		
+<% end %>

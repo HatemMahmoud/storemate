@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Store Mate <%= "| #{@page_title}" if @page_title %></title>
+	<%= stylesheet_link_tag 'screen' %>
+	<%= javascript_include_tag :defaults, :cache => true %>
+</head>
+
+<body>
+	<div id="header">
+		<% if logged_in? %>
+			<ul id="welcome">
+				<li class="user"><%= link_to h(current_user.login), edit_user_path(current_user) %></li>
+				<li class="key"><%= link_to 'Logout', logout_path %></li>
+				<li class="help"><%= link_to 'Help', help_path %></li>
+			</ul>
+		<% end %>
+		<h1><%= link_to mystore.name, home_path %></h1>
+		<div id="today">
+			<%= nice_date(Time.now) %>
+		</div>
+		<% if logged_in? %>
+			<div id="menu">
+				<ul>
+					<li><%= link_to 'Home', 			home_path,				:class => params[:controller]=='home' ? 'active' : '' %></li>
+					<li><%= link_to 'Sales Orders',		sales_orders_path,		:class => params[:controller]=='sales_orders' ? 'active' : '' %></li>
+					<li><%= link_to 'Purchase Orders',	purchase_orders_path,	:class => params[:controller]=='purchase_orders' ? 'active' : '' %></li>
+					<li><%= link_to 'Products',			products_path,			:class => params[:controller]=='products' ? 'active' : '' %></li>
+					<li><%= link_to 'Categories',		categories_path,		:class => params[:controller]=='categories' ? 'active' : '' %></li>
+					<li><%= link_to 'Customers',		customers_path,			:class => params[:controller]=='customers' ? 'active' : '' %></li>
+					<li><%= link_to 'Suppliers',		suppliers_path,			:class => params[:controller]=='suppliers' ? 'active' : '' %></li>
+					<% if admin? %>
+						<li><%= link_to 'Settings', 	edit_store_path, 		:class => ['store', 'users', 'tax_rates', 'unit_types'].include?(params[:controller]) ? 'active' : '' %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+	</div>
+	<div id="container">
+		<div id="content">
+			<noscript>
+				<p id="note">Sorry, this application needs JavaScript to be enabled to function properly.
+				Please enable JavaScript in your browser and reload the page.</p>
+			</noscript>
+			<% flash.each do |key, msg| %>
+				<%= content_tag :p, msg, :id => key %>
+			<% end %>
+			<%= yield %>
+		</div>
+		<div id="sidebar">
+			<%= render :partial => 'layouts/sidebar' %>
+		</div>
+		<div class="clear_both"></div>
+		<div id="footer">
+			<p>©2008 <a href="http://www.expressionlab.com/" target="blank">Made in ExpressionLab</a>. All rights reserved.</p>
+		</div>
+	</div>
+</body>
+</html>

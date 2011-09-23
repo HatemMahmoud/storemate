@@ -1,0 +1,21 @@
+<h1>Purchase orders</h1>
+
+<table>
+  <tr>
+    <th>Paid</th>
+    <th>ID</th>
+    <th>Date</th>
+    <th>Supplier</th>
+    <th>User</th>
+  </tr>
+
+<% for purchase_order in @purchase_orders %>
+  <tr>
+    <td align="center"><%= image_tag('money.png', :alt => 'Paid', :title => 'Paid') if purchase_order.paid %></td>
+    <td align="right"><%= link_to purchase_order.id, purchase_order %></td>
+    <td><%= nice_datetime purchase_order.created_at %></td>
+    <td><%= purchase_order.supplier.blank? ? '-' : link_to(h(purchase_order.supplier.name), purchase_order.supplier) %></td>
+    <td><%= h purchase_order.user.login %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,21 @@
+<h1>Category: <%=h @category.name %></h1>
+
+<% if !@category.description.blank? %>
+<p>
+  <b>Description:</b>
+  <%=h @category.description %>
+</p>
+<% end %>
+
+<p>
+  <b>Products:</b>
+  <% if @category.products.empty? %>
+  	None.
+  <% else %>
+  	<ul>
+	  <% for product in @category.products do %>
+	  	<li><%= link_to product.name, product %></li>
+	  <% end %>
+	</ul>
+  <% end %>
+</p>

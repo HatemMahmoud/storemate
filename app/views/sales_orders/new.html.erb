@@ -1,0 +1,49 @@
+<h1>New sales order</h1>
+
+<% form_for(@sales_order) do |f| %>
+	<%= f.error_messages %>  
+	<p>
+		<%= f.label :customer %>: <%= f.collection_select :customer_id, Customer.find(:all), :id, :name, :include_blank => 'None' %>
+	</p>	
+	<table>
+		<tr>
+			<th>
+				<span id="spinner" class="float_left" style="display: none;"><img src="/images/spinner.gif" /></span>
+				Product
+			</th>
+			<th>Unit price (<%= mystore.currency_symbol %>)</th>
+			<th>Taxes (%)</th>
+			<th>Quantity</th>
+			<th>Subtotal (<%= mystore.currency_symbol %>)</th>
+		</tr>
+		<% @sales_line_items.each_with_index do |line_item, i| %>
+		<tr>
+			<% fields_for :sales_line_items, line_item do |ff| %>
+				<td>
+					<%= ff.collection_select :product_id, Product.find(:all, :order => 'name'), :id, :name, {:include_blank => 'None'},
+						:index => i, 
+						:onchange => remote_function( :update => 'sales_line_items_0_unit_price',
+													  :loading => "$('spinner').show()",
+													  :loaded =>  "$('spinner').hide()",
+													  :url => {:action => 'get_product_price', :index => i},
+													  :with => "'product_id=' + value"),
+						:class => 'product_id small'
+					%>
+					<%= error_message_on(line_item, "product") %>
+				</td>
+				<td><%= ff.text_field :unit_price,	:index => i, :onchange => 'recalculate_total_price(this)', :class => 'unit_price small' %><%= error_message_on(line_item, "unit_price") %></td>
+				<td><%= text_field_tag "sales_line_items_#{i}_total_taxes", nil, :class => 'total_taxes small readonly', :readonly => true, :tabindex => "100" %></td>
+				<td><%= ff.text_field :quantity,	:index => i, :onchange => 'recalculate_total_price(this)', :class => 'quantity small' %><%= error_message_on(line_item, "quantity") %></td>
+				<td><%= ff.text_field :total_price,	:index => i, :class => 'total_price small readonly', :readonly => true, :tabindex => "101" %></td>
+			<% end %>
+		</tr>
+		<% end %>
+		<tr>
+			<th colspan="4">Total</th>
+			<th><%= mystore.currency_symbol %> <span id="total">0.00</span></th>
+		</tr>
+	</table>
+	<p>
+		<%= f.submit "Save", :onclick => 'blank_unused_sales_line_items()' %>
+	</p>
+<% end %>

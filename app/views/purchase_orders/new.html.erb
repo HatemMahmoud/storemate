@@ -1,0 +1,47 @@
+<h1>New purchase order</h1>
+
+<% form_for(@purchase_order) do |f| %>
+	<%= f.error_messages %>  
+	<p>
+		<%= f.label :supplier %>: <%= f.collection_select :supplier_id, Supplier.find(:all), :id, :name, :include_blank => 'None' %>
+	</p>	
+	<table>
+		<tr>
+			<th>
+				<span id="spinner" class="float_left" style="display: none;"><img src="/images/spinner.gif" /></span>
+				Product
+			</th>
+			<th>Unit cost (<%= mystore.currency_symbol %>)</th>
+			<th>Quantity</th>
+			<th>Subtotal (<%= mystore.currency_symbol %>)</th>
+		</tr>
+		<% @purchase_line_items.each_with_index do |line_item, i| %>
+		<tr>
+			<% fields_for :purchase_line_items, line_item do |ff| %>
+				<td>
+					<%= ff.collection_select :product_id, Product.find(:all, :order => 'name'), :id, :name, {:include_blank => 'None'},
+						:index => i, 
+						:onchange => remote_function( :update => 'purchase_line_items_0_unit_cost',
+													  :loading => "$('spinner').show()",
+													  :loaded =>  "$('spinner').hide()",
+													  :url => {:action => 'get_product_cost', :index => i},
+													  :with => "'product_id=' + value"),
+						:class => 'product_id small'
+					%>
+					<%= error_message_on(line_item, "product") %>
+				</td>
+				<td><%= ff.text_field :unit_cost,	:index => i, :onchange => 'recalculate_total_cost_cost(this)', :class => 'unit_cost small' %><%= error_message_on(line_item, "unit_cost") %></td>
+				<td><%= ff.text_field :quantity,	:index => i, :onchange => 'recalculate_total_cost(this)', :class => 'quantity small' %><%= error_message_on(line_item, "quantity") %></td>
+				<td><%= ff.text_field :total_cost,	:index => i, :class => 'total_cost small readonly', :readonly => true, :tabindex => "101" %></td>
+			<% end %>
+		</tr>
+		<% end %>
+		<tr>
+			<th colspan="3">Total</th>
+			<th><%= mystore.currency_symbol %> <span id="total">0.00</span></th>
+		</tr>
+	</table>
+	<p>
+		<%= f.submit "Save", :onclick => 'blank_unused_purchase_line_items()' %>
+	</p>
+<% end %>

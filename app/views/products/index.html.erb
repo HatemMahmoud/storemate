@@ -1,0 +1,29 @@
+<h1>Listing products</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Code</th>
+    <th>Category</th>
+    <th>Unit type</th>
+    <th>Unit cost (<%= mystore.currency_symbol %>)</th>
+    <th>Unit price (<%= mystore.currency_symbol %>)</th>
+    <th>Stock</th>
+  </tr>
+
+<% for product in @products %>
+  <tr>
+    <td>
+    	<%= link_to_if admin?, image_tag('edit.png', :alt => 'Edit', :title => 'Edit'), edit_product_path(product) do '' end %>
+		<%= link_to_if admin?, image_tag('delete.png', :alt => 'Delete', :title => 'Delete'), product, :confirm => 'Are you sure?', :method => :delete do '' end %>
+		<%= link_to h(product.name), product %>
+	</td>
+    <td><%=h product.code %></td>
+    <td><%= link_to h(product.category.name), product.category %></td>
+    <td><%=h product.unit_type.name %></td>
+    <td align="right"><%=h product.unit_cost %></td>
+    <td align="right"><%=h product.unit_price %></td>
+    <td align="right"><%=h product.units_in_stock %></td>
+  </tr>
+<% end %>
+</table>

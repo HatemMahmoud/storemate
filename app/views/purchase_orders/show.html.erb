@@ -1,0 +1,43 @@
+<h1>Purchase order: <%= @purchase_order.id %></h1>
+
+<% if @purchase_order.paid %>
+	<p id="notice" style="text-align: center;">Paid</p>
+<% else %>
+	<p id="spinner" style="text-align: center; display: none;"><img src="/images/spinner.gif" /></p>
+	<p id="error" style="display: none;"></p>
+	<p id="notice" style="text-align: center; display: none;"></p>
+<% end %>
+
+<p>
+	<b>Supplier:</b> <%= @purchase_order.supplier.blank? ? '' : link_to(h(@purchase_order.supplier.name), @purchase_order.supplier) %>
+</p>
+
+<table>
+	<tr>
+		<th>Product</th>
+		<th>Unit cost (<%= mystore.currency_symbol %>)</th>
+		<th>Quantity</th>
+		<th>Subtotal (<%= mystore.currency_symbol %>)</th>
+	</tr>
+	<% @purchase_order.purchase_line_items.each do |line_item| %>
+	<tr>
+		<td><%= link_to line_item.product.name, line_item.product %></td>
+		<td align="right"><%= line_item.unit_cost %></td>
+		<td align="right"><%= line_item.quantity %></td>
+		<td align="right"><%= line_item.total_cost %></td>
+	</tr>
+	<% end %>
+	<tr>
+		<th colspan="3">Total</th>
+		<th><%= currency(@purchase_order.purchase_line_items.total_cost) %></th>
+	</tr>
+</table>
+
+<% if not @purchase_order.paid %>
+	<% remote_form_for(@purchase_order, :loading => "$('spinner').show()", :complete => "$('spinner').hide()") do |f| %>
+		<p align="center">
+			<%= f.hidden_field :paid, :value => '1' %>
+			<%= f.submit 'Received and Paid' %>
+		</p>
+	<% end %>
+<% end %>

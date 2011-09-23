@@ -1,0 +1,19 @@
+<h1>Listing tax rates</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Percentage</th>
+  </tr>
+
+<% for tax_rate in @tax_rates %>
+  <tr>
+    <td>
+    	<%= link_to image_tag('edit.png', :alt => 'Edit', :title => 'Edit'), edit_tax_rate_path(tax_rate) %>
+		<%= link_to image_tag('delete.png', :alt => 'Delete', :title => 'Delete'), tax_rate, :confirm => 'Are you sure?', :method => :delete %>
+    	<%=h tax_rate.name %>
+	</td>
+    <td align="right"><%= "#{tax_rate.percentage.to_s}%" %></td>
+  </tr>
+<% end %>
+</table>

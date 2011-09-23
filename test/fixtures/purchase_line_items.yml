@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  purchase_order: 
+  product: 
+  unit_price: 9.99
+  quantity: 9.99
+  total_price: 9.99
+
+two:
+  purchase_order: 
+  product: 
+  unit_price: 9.99
+  quantity: 9.99
+  total_price: 9.99

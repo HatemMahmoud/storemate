@@ -1,0 +1,23 @@
+<%= error_messages_for :user %>
+
+<% form_for(@user) do |f| %>
+
+	<p><b><label for="login">Login</label></b>
+	<%= ['new','create'].include?(params[:action]) ? '<br/>' + f.text_field(:login) : '(' + @user.login + ')' %></p>
+	
+	<p><b><label for="password">Password</label></b><br/>
+	<%= f.password_field :password %></p>
+	
+	<p><b><label for="password_confirmation">Confirm Password</label></b><br/>
+	<%= f.password_field :password_confirmation %></p>
+	
+	<% if !first_run? %>
+		<% if admin? %>
+			<p><%= f.check_box :is_admin %> <label for="is_admin">Is Admin</label></p>	
+			<p><%= f.check_box :enabled %> <label for="enabled">Enabled</label></p>
+		<% end %>
+	<% end %>
+	
+	<p><%= f.submit "Save" %></p>
+
+<% end -%>
