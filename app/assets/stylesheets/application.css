@@ -5,3 +5,17 @@
  *= require_self
  *= require_tree . 
 */
+#features  {
+  text-align: center;
+}
+#features h1 {
+  margin: 150px 0 0;
+  font-size: 54px;
+}
+#features h2 {
+  margin: 50px 0 0;
+  font-size: 34px;
+}
+#features h3 {
+  margin: 0 0 50px;
+}

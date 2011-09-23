@@ -1,4 +1,8 @@
 Storemate::Application.routes.draw do
+  # get "pages/show"
+  resources :pages, :only => :show
+  root :to => "pages#show", :id => :home
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
