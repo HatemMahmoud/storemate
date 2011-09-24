@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Signup <small>Create your store</small></h1>
+  <h1>Signup <small>Create your account</small></h1>
 </div>
 <div class="row">
     <div class="span4">
@@ -9,17 +9,17 @@
       <form>
         <fieldset>
           <div class="clearfix">
-            <label for="Input">Store Name</label>
+            <label for="Input">Company Name</label>
             <div class="input">
-              <input class="" id="Input" name="Input" size="30" type="text" value="Hatem's Store">
+              <input class="" id="Input" name="Input" size="30" type="text" value="Hatem Stores">
             </div>
           </div><!-- /clearfix -->
           <div class="clearfix">
-            <label for="normalSelect">Store Type</label>
+            <label for="normalSelect">Retail Business</label>
             <div class="input">
               <select name="normalSelect" id="normalSelect">
                 <option>Select...</option>
-                <option selected="selected">Electronics</option>
+                <option>Electronics</option>
                 <option>Supermarket</option>
                 <option>Clothing</option>
                 <option>Jewelry</option>
@@ -30,24 +30,31 @@
           <div class="clearfix">
             <label for="Input">Email</label>
             <div class="input">
-              <input class="" id="Input" name="Input" size="30" type="text" value="Hatem's Store">
+              <input class="" id="Input" name="Input" size="30" type="text" value="info@hatemstores.com">
             </div>
           </div><!-- /clearfix -->
           <div class="clearfix">
             <label for="Input">Password</label>
             <div class="input">
-              <input class="" id="Input" name="Input" size="30" type="password" value="Hatem's Store">
+              <input class="" id="Input" name="Input" size="30" type="password" value="xxxxxxxx">
             </div>
           </div><!-- /clearfix -->
           <div class="clearfix">
-            <label for="Input">Confirm Password</label>
+            <label id="optionsCheckboxes">Terms</label>
             <div class="input">
-              <input class="" id="Input" name="Input" size="30" type="password" value="Hatem's Store">
+              <ul class="inputs-list">
+                <li>
+                  <label>
+                    <input type="checkbox" name="optionsCheckboxes" value="option1">
+                    <span>I agree to the <a href="#">terms of service</a></span>
+                  </label>
+                </li>
+              </ul>
             </div>
-          </div><!-- /clearfix -->
+          </div>
           <div class="clearfix">
           <div class="actions">
-            <input type="submit" class="btn primary" value="Save changes">&nbsp;<button type="reset" class="btn">Cancel</button>
+            <%= link_to 'Next', page_path('store_setup'), :class => 'btn primary' %>
           </div>
         </fieldset>
       </form>

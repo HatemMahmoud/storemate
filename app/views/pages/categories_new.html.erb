@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h1>Categories <small>Define product categories</small></h1>
+</div>
+<div class="row">
+    <div class="span4">
+      <h3>New Category</h3>
+      <p>Define categories to group your products.</p>
+    </div>
+    <div class="span12">
+      <a href="#" style="float: right;">
+        <img class="thumbnail" src="http://placehold.it/210x150" alt="">
+      </a>
+      <form>
+        <fieldset>
+          <div class="clearfix">
+            <label for="Input">Name</label>
+            <div class="input">
+              <input class="" id="Input" name="Input" size="30" type="text" value="Mobile phones">
+            </div>
+          </div><!-- /clearfix -->
+          <div class="clearfix">
+            <label for="fileInput">Picture</label>
+            <div class="input">
+              <input class="input-file" id="fileInput" name="fileInput" type="file">
+            </div>
+          </div>
+          <div class="clearfix">
+            <label for="textarea">Description</label>
+            <div class="input">
+              <textarea class="xlarge" id="textarea2" name="textarea2" rows="7">All types of mobile phones.</textarea>
+            </div>
+          </div>
+          <div class="clearfix">
+          <div class="actions">
+            <%= link_to 'Next', page_path('units_new'), :class => 'btn primary' %>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>

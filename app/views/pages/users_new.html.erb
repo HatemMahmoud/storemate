@@ -1,0 +1,48 @@
+<div class="page-header">
+  <h1>Users <small>Add your employees</small></h1>
+</div>
+<div class="row">
+    <div class="span4">
+      <h3>New User</h3>
+      <p>All fields are required.</p>
+    </div>
+    <div class="span12">
+      <form>
+        <fieldset>
+          <div class="clearfix">
+            <label for="Input">Name</label>
+            <div class="input">
+              <input class="" id="Input" name="Input" size="30" type="text" value="Hatem Stores">
+            </div>
+          </div><!-- /clearfix -->
+          <div class="clearfix">
+            <label for="Input">Email</label>
+            <div class="input">
+              <input class="" id="Input" name="Input" size="30" type="text" value="info@hatemstores.com">
+            </div>
+          </div><!-- /clearfix -->
+          <div class="clearfix">
+            <label for="normalSelect">Branch</label>
+            <div class="input">
+              <select name="normalSelect" id="normalSelect">
+                <option>Select...</option>
+                <option>Main branch</option>
+              </select>
+            </div>
+          </div><!-- /clearfix -->
+          <div class="clearfix">
+            <label for="normalSelect">Role</label>
+            <div class="input">
+              <select name="normalSelect" id="normalSelect">
+                <option>Select...</option>
+                <option>Branch manager</option>
+                <option>Casheir</option>
+              </select>
+            </div>
+          <div class="actions">
+            <%= link_to 'Next', page_path('categories_new'), :class => 'btn primary' %>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
