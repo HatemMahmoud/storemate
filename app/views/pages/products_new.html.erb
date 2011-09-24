@@ -1,4 +1,5 @@
 <div class="page-header">
+  <%= link_to 'Store Online', page_path('store_online'), :class => 'btn success', :style => 'float: right;' %>
   <h1>Products <small>Define your products</small></h1>
 </div>
 <div class="row">
@@ -61,12 +62,6 @@
               <ul class="inputs-list">
                 <li>
                   <label>
-                    <input type="checkbox" name="optionsCheckboxes" value="option1" checked="checked">
-                    <span>City tax</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
                     <input type="checkbox" name="optionsCheckboxes" value="option2">
                     <span>Sales tax</span>
                   </label>
@@ -92,7 +87,7 @@
             </div>
           </div><!-- /clearfix -->
           <div class="actions">
-            <%= link_to 'Next', page_path('store_setup_done'), :class => 'btn primary' %>
+            <%= link_to 'Next', page_path('sales_new'), :class => 'btn primary' %>
           </div>
         </fieldset>
       </form>
