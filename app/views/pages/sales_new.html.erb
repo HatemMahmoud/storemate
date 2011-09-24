@@ -1,0 +1,162 @@
+<div class="page-header">
+  <select style="float: right;">
+    <option>Select customer...</option>
+    <option>Zaki Basha</option>
+    <option>Ali Baba</option>
+    <option>Add...</option>
+  </select>
+  <h1>Sales Order #987636</h1>
+</div>
+<div class="row">
+    <div class="span16">
+      <table class="zebra-striped" id="sortTableExample">
+        <thead>
+          <tr>
+            <th class="blue header headerSortDown">#</th>
+            <th class="blue header">Code</th>
+            <th class="blue header">Name</th>
+            <th class="blue header">Price</th>
+            <th class="blue header">Taxes</th>
+            <th class="blue header">Quantity</th>
+            <th class="blue header">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1</td>
+          <td><input class="span3" id="" name="" type="text" value="6223001360063"></td>
+          <td>Mobile phones - Sony Ericsson K800i</td>
+          <td>1325</td>
+          <td>10%</td>
+          <td><input class="span2" id="" name="" type="text" value="1"></td>
+          <td>1457.50</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><input class="span3" id="" name="" type="text" value="2352423452343"></td>
+          <td>Cables - Sony Ericsson DCU-11 USB Cable</td>
+          <td>20</td>
+          <td>10%</td>
+          <td><input class="span2" id="" name="" type="text" value="1"></td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><input class="span3" id="" name="" type="text" value="9879739479798"></td>
+          <td>Batteries - Sony-Ericsson BST-37 K750i Battery</td>
+          <td>100</td>
+          <td>10%</td>
+          <td><input class="span2" id="" name="" type="text" value="2"></td>
+          <td>220</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><input class="span3" id="" name="" type="text" value=""></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><input class="span2" id="" name="" type="text" value=""></td>
+          <td></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+<h1 style="float: right;">EGP 1,689.50</h1>
+<div class="well" style="clear:both; text-align: center">
+  <a href="#" class="btn large primary" onclick="$('#fadein').show();$('#pay-modal').show();">Pay</a>
+</div>
+
+<div id="fadein" class="modal-backdrop fade in" style="display: none; "></div>
+
+<div id="pay-modal" class="modal hide fade in">
+  <div class="modal-header">
+    <a href="#" class="close">×</a>
+    <h3>Pay</h3>
+  </div>
+  <div class="modal-body">
+    <div class="clearfix">
+      <div class="input">
+        <ul class="inputs-list">
+          <li>
+            <label>
+              <input type="radio" checked="" name="optionsRadios" value="option1">
+              <span>Cash</span>
+            </label>
+            <p>
+              <div class="input">
+                <input class="xlarge" id="xlInput" name="xlInput" size="30" type="text" value="1,689.50">
+              </div>
+            </p>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="optionsRadios" value="option2">
+              <span>Credit card</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn secondary">Cancel</a>
+    <a href="#" class="btn primary" onclick="$('#pay-modal').hide(); $('#receipt-modal').show();">Pay</a>
+  </div>
+</div>
+
+<div id="receipt-modal" class="modal hide fade in">
+  <div class="modal-header">
+    <a href="#" class="close">×</a>
+    <h3>Receipt #987636</h3>
+  </div>
+  <div class="modal-body">
+      <table class="zebra-striped" id="sortTableExample">
+        <thead>
+          <tr>
+            <th class="header">#</th>
+            <th class="header">Code</th>
+            <th class="header">Name</th>
+            <th class="header">Price</th>
+            <th class="header">Taxes</th>
+            <th class="header">Quantity</th>
+            <th class="header">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1</td>
+          <td>6223001360063</td>
+          <td>Mobile phones - Sony Ericsson K800i</td>
+          <td>1325</td>
+          <td>10%</td>
+          <td>1</td>
+          <td>1457.50</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>2352423452343</td>
+          <td>Cables - Sony Ericsson DCU-11 USB Cable</td>
+          <td>20</td>
+          <td>10%</td>
+          <td>1</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>9879739479798</td>
+          <td>Batteries - Sony-Ericsson BST-37 K750i Battery</td>
+          <td>100</td>
+          <td>10%</td>
+          <td>2</td>
+          <td>220</td>
+        </tr>
+        </tbody>
+      </table>
+      <h3 style="float: right;">EGP 1,689.50</h3>
+  </div>
+  <div class="modal-footer" style="clear:both;">
+    <a href="#" class="btn secondary">Cancel</a>
+    <a href="#" class="btn primary">Print</a>
+  </div>
+</div>
