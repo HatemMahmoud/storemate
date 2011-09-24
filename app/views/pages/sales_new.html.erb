@@ -51,7 +51,7 @@
         </tr>
         <tr>
           <td>4</td>
-          <td><input class="span3" id="" name="" type="text" value=""></td>
+          <td><input class="span3" id="" name="" type="text" value="" tabindex="1"></td>
           <td></td>
           <td></td>
           <td></td>
@@ -157,6 +157,6 @@
   </div>
   <div class="modal-footer" style="clear:both;">
     <a href="#" class="btn secondary">Cancel</a>
-    <a href="#" class="btn primary">Print</a>
+    <%= link_to 'Print', page_path('sales_index'), :class => 'btn primary' %>
   </div>
 </div>
